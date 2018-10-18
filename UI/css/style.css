@@ -1,0 +1,464 @@
+body {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* sidenav push example */
+
+.sidenav {
+  display: none;
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 100;
+  right: 0;
+  background: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav ul {
+  list-style: none;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: .3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  box-sizing: border-box;
+  transition: margin-right .5s;
+  transition: margin-left .5s;
+}
+
+#closeMenu {
+  display: none;
+}
+
+.dropAccount {
+  display: none;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 5px;
+  transition: 0.5s ease;
+}
+
+/* slide */
+
+.cover {
+  background-image: url('../images/bg/jumb-md.jpg');
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: -57px;
+  background-position: center center;
+  background-size: cover;
+  overflow-x: hidden;
+  background-attachment: fixed;
+  box-sizing: border-box;
+}
+
+.jumb-img {
+  display: none;
+  width: auto;
+}
+
+.jumb{
+  width: 100%;
+  overflow-x: hidden;
+}
+.jumb-card {
+  width: auto;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  right: 20%;
+  padding: 10px;
+  padding-right: 0px;
+}
+
+.jumbotron {
+  background: rgba(159, 65, 101, 0.51);
+  color: #f8f9fa;
+}
+
+.jumbotron p {
+  font-size: 20px;
+}
+
+label {
+  color: #fff;
+}
+
+.event-guild {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  right: 5%;
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.mind-bg {
+  background: #524c5d;
+  border-radius: 30%;
+  padding: 3px;
+  margin-bottom: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.mind-bg:hover {
+  background: #d5d5d5;
+}
+
+.events-guild {
+  width: 50%;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -200px;
+  height: auto;
+  background: #09080b;
+  border-radius: 10px;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.date {
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 37.5rem;
+  padding-top: 40px;
+  margin-top: 20px;
+  background: rgba(157, 154, 91, 0.13);
+}
+
+.date span {
+  background: #ddd;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.date h1 {
+  color: rgb(49, 82, 198);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.sm, .md, .xs {
+  display: none;
+}
+
+/* spinners */
+
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 150px;
+  width: 150px;
+  margin-top: 30px;
+  margin-left: -30px;
+  border-radius: 50%;
+  border-right: 2px solid transparent;
+  border-top: 2px solid coral;
+  animation: spinner 0.7s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* catalog */
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.catalog {
+  width: 100%;
+  background: #000;
+  color: #f8f9fa;
+}
+
+.catalog h2 {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.catalog .card {
+  color: #000;
+  margin-bottom: 10px !important;
+}
+
+.catalog .card:hover {
+  text-decoration: underline;
+  text-underline-position: right;
+  border-bottom: 1px solid #666;
+  background: #999;
+  cursor: pointer;
+}
+/*testimony*/
+.testy {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  padding-top: 40px;
+  margin-top: 5px;
+  background: rgba(157, 154, 91, 0.13);
+  overflow-x: hidden;
+}
+.testy h1{
+  color: rgb(75, 46, 96);
+}
+.testy .card-img-top {
+  width: 40%;
+  padding: 5px;
+  margin: 0 auto;
+}
+.testy .card {
+  width: 20rem;
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 5%;
+  box-shadow: 1px 8px 10px #000;
+}
+
+.subscribe {
+  width: 50%;
+  margin: 10px auto;
+}
+
+.subscribe label {
+  color: #000;
+}
+
+/*footer*/
+.footer {
+  width: 100%;
+  height: auto;
+  background: #000;
+  color: #fff;
+}
+
+.footer hr.light {
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+}
+
+.icon a img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.icon a img:hover {
+  background: #f8f9fa;
+}
+
+/* media query */
+
+@media (max-width: 1270px) {
+  .cover {
+    display: none;
+  }
+  .jumb-img {
+    display: block;
+  }
+  .formL {
+    display: none;
+  }
+  .mind-frame h1 {
+    margin-top: 30px;
+  }
+
+  .testy .card {
+    width: 17rem;
+    margin: auto;
+    padding: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .cover {
+    display: none;
+  }
+  .jumb-img {
+    display: block;
+  }
+  .remove {
+    display: none;
+  }
+  .sidenav {
+    display: block;
+  }
+  input[type="text"] {
+    width: auto;
+  }
+  .jumb-card {
+    width: 60%;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+    margin-top: -30%;
+    margin-left: 0px;
+  }
+  .mind-bg {
+    background: #524c5d;
+    border-radius: 30%;
+    padding: 3px;
+    margin-bottom: 15px;
+  }
+  .events-guild {
+    width: 50%;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  .testy .card {
+    width: auto;
+    margin: auto;
+    padding: 0;
+  }
+
+  .img3{
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .md {
+    display: block;
+  }
+  .mind-frame span a {
+    margin-top: 10px !important;
+  }
+  .events-guild {
+    width: 60%;
+    position: relative;
+  }
+  .mind-bg {
+    background: #524c5d;
+    border-radius: 30%;
+    padding: 0;
+    margin-bottom: 15px;
+    width: 40px;
+    height: 40px;
+  }
+  .mind-frame {
+    margin-top: -10px !important;
+  }
+  .testy .card {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 5%;
+    box-shadow: 3px 8px 8px  #d6d8d9;
+  }
+  .img3{
+    display: block;
+  }
+}
+
+
+@media (max-width: 578px) {
+  .sm {
+    display: block;
+  }
+  .basic-addon {
+    width: 35px;
+    height: 50px;
+    margin: 0px;
+  }
+  .jumb-card {
+    width: 65%;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+    margin-top: -30%;
+    margin-left: 0px;
+  }
+  .labele {
+    display: none;
+  }
+  input[type="text"] {
+    margin-left: 5;
+    margin-right: 0;
+    padding: 0;
+  }
+  .events-guild {
+    width: 100%;
+    position: relative;
+    border-radius: 0px;
+  }
+  .spinner:before {
+    left: 40%;
+    right: 50%;
+  }
+}
+
+@media (max-width: 320px) {
+  .xs {
+    display: block;
+  }
+  .jumb-card {
+    width: 80%;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+    margin-top: -32%;
+    margin-left: -30px;
+  }
+  .subscribe {
+    width: 60%;
+    margin: 10px auto;
+  }
+  .spinner:before {
+    top: 65%;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
