@@ -4,9 +4,271 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>HomePage</title>
+  <!-- style -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- script -->
+  <script src="./javascript/jquery.js" charset="utf-8"></script>
 </head>
 <body>
+  <!-- sidenav -->
+    <div id="mysidenav" class="sidenav">
+      <ul>
+        <li>
+          <a href="#">Home </a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Create Event</a>
+        </li>
+        <li>
+          <a class="dropdown-toggle" href="#" id="navbarDropdown">
+    Account
+  </a>
+          <div class="dropAccount" id="dropAcc">
+            <a href="./login.htm">sign in</a>
+            <div class="dropdown-divider"></div>
+            <a href="./login.htm">Register</a>
+          </div>
+        </li>
+      </ul>
 
+    </div>
+
+    <!-- Main area of the web page -->
+
+    <!-- navbar -->
+    <div class="container-fluid" id="main">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="./index.html">EventRock</a>
+        <!-- openNav button -->
+        <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <!-- closeNav button -->
+        <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
+
+
+        <div class="remove collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Create Event</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Account
+                </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">sign in</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Register</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <!-- slide -->
+      <div class="jumb" id="createEvent">
+        <div class="cover"></div>
+        <div class="jumb-img">
+          <img src="./images/bg/coverImg.jpg" class="img-fluid">
+        </div>
+
+        <div class="jumb-card">
+          <div class="jumbotron text-center ">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis impedit, amet repellendus tenetur id ratione fugit, vitae esse vero inventore quos aperiam doloribus itaque. Minus.</p>
+            <button type="button" class="btn btn-secondary" name="button">READ MORE</button>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- section -->
+        <div class="events-guild">
+          <div class="row col-12 text-center">
+            <div class="col-lg-4 col-xl-4 col-md-4  col-sm-4">
+              <a href="#mind"><img src="./images/mind.png" alt="frame of mind" class="img-fluid mind-bg"></a>
+              <p style="color: #dc3545">Frame of mind</p>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4">
+              <a href="#catalog"><img  src="./images/catalog.png" alt="Catalog" class="img-fluid mind-bg"></a>
+              <p style="color: #007bff">Catalog</p>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4">
+              <a href="#date"><img src="./images/date.png" alt="date" class="img-fluid mind-bg"></a>
+              <p style="color: #fd7e14">Date</p>
+            </div>
+          </div>
+        </div>
+
+
+      <!-- choose a date -->
+        <div class="date" id="date">
+          <div>
+            <h1>Choose a date..</h1>
+          </div>
+          <div>
+            <a href="#"><span class="btn btn-primary active">Today</span></a>
+            <a href="#"><span class="btn btn-outline-secondary">Tomorrow</span></a>
+            <a href="#"><span class="btn btn-outline-secondary">This week</span></a>
+            <hr class="md">
+            <a href="#"><span class="btn btn-outline-secondary">This weekend</span></a>
+            <a href="#"><span class="btn btn-outline-secondary">Next week</span></a>
+            <hr class="xs">
+            <a href="#"><span class="btn btn-outline-secondary">Next Month</span></a>
+          </div>
+
+          <!-- spinner -->
+          <div class='spinner'></div>
+        </div>
+
+        <!-- catalog -->
+        <div class="catalog text-center" id="catalog">
+          <h2>Seeking for varieties..</h2>
+          <div class="row col-12">
+            <div class="col-lg-7 col-md-12 ">
+              <video autoplay loop>
+                <source src="./gif/jumb-md.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="col-lg-5 col-md-12" id="slido">
+              <div class="card slido1">
+                <h4 class="card-title">MUSIC</h4>
+              </div>
+              <div class="card slido2">
+                <h4 class="card-title">ARTS</h4>
+              </div>
+              <div class="card slido3">
+                <h4 class="card-title">BUSINESS</h4>
+              </div>
+              <div class="card slido4">
+                <h4 class="card-title">SPORTS</h4>
+              </div>
+              <div class="card slido5">
+                <h4 class="card-title">PARTIES</h4>
+              </div>
+              <div class="card slido6">
+                <h4 class="card-title">FOODS AND DRINKS</h4>
+              </div>
+              <div class="card slido7">
+                <h4 class="card-title">CLASSES</h4>
+              </div>
+              <div class="card slido8">
+                <h4 class="card-title">CONFERENCE</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- card -->
+      <div class=" padding text-center testy" id="mind">
+        <h1>Testimonies..</h1>
+        <div class="row col-12 ">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-3 img1">
+            <div class="card">
+              <img src="images/avatar/testy (1).png" class="card-img-top image-fluid">
+              <div class="card-body">
+                <h4 class="card-title">John Doe</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas veritatis nemo sed magnam mollitia consequatur.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-3 img2">
+            <div class="card">
+              <img src="images/avatar/testy (2).png" class="card-img-top image-fluid">
+              <div class="card-body">
+                <h4 class="card-title">Charles Feem</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas veritatis nemo sed magnam mollitia consequatur.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 img3">
+            <div class="card">
+              <img src="images/avatar/testy (3).png" class="card-img-top image-fluid">
+              <div class="card-body">
+                <h4 class="card-title">Mike Kale</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas veritatis nemo sed magnam mollitia consequatur.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- subscribe -->
+      <div class="container padding subscribe">
+        <h3>For our newsletter</h3>
+        <form class="form-inline">
+          <div class="form-group">
+            <!-- <label class="form-item">Email: .</label> -->
+            <input type="email" class="form-control my-2 my-sm-0" placeholder="enter your email">
+            <button class="btn btn-danger ">
+              Subscribe
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+
+      <!-- footer -->
+      <div class=" text-center footer">
+        <div class="row col-12">
+          <div class="col-md-4">
+            <hr class="light">
+            <h2>EventRock</h2>
+            <hr class="light">
+            <p>555-555-5555</p>
+            <p>Email@eventrock.com</p>
+            <p>100 street name</p>
+            <p>city, state, 0000</p>
+          </div>
+          <div class="col-md-4">
+            <hr class="light">
+            <h2>Contact</h2>
+            <hr class="light">
+            <p>555-555-5555</p>
+            <p>Email@pressgurd.com</p>
+            <p>100 street name</p>
+            <p>city, state, 0000</p>
+          </div>
+          <div class="col-md-4 icon">
+            <hr class="light">
+            <h2>Follow us</h2>
+            <hr class="light">
+            <a href="#"><img src="images/icons/facebook.png" alt="facebook" class="image-fluid"></a>
+            <a href="#"><img src="images/icons/twitter.png" alt="twitter" class="image-fluid"></a>
+            <a href="#"><img src="images/icons/google-plus.png" alt="google-plus" class="image-fluid"></a>
+            <a href="#"><img src="images/icons/instagram.png" alt="instagram" class="image-fluid"></a>
+            <a href="#"><img src="images/icons/linkedin.png" alt="linkedin" class="image-fluid"></a>
+          </div>
+        </div>
+        <br>
+        <p>&copy; EventRock 2018</p>
+      </div>
+
+      <!-- End of web page div -->
+    </div>
+
+  <!-- script -->
+  <script src="./javascript/bootstrap.min.js" charset="utf-8"></script>
+  <script src="./javascript/script.js" charset="utf-8"></script>
+  <script>
+    $("#navbarDropdown").on('click', () => {
+      $("#dropAcc").toggle()
+    })
+  </script>
 </body>
 </html>
