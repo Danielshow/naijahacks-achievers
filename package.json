@@ -4,7 +4,8 @@
   "description": "A Web Application for Creating and displaying events",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "npm run build && nodemon ./build/index.js",
+    "build": "rm -rf build/ && babel ./server --out-dir build/ "
   },
   "repository": {
     "type": "git",
