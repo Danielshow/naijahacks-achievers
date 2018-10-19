@@ -13,10 +13,12 @@ Web application for creating Events
 - FinTech
 
 ### Problem
-Nigeria have the problem of pasting posters over wall everywhere in the surroundings which most times litter the environment. This gives cleaners more work to do. Curbing this will give rise to cleanliness
+Nigeria have the problem of pasting posters all over the wall in every surroundings which most times litter the environments. This gives cleaners more work to do. Curbing this will give rise to cleanliness. 
+
+Event creators dont have lot of audience to pitch their ideas or event to and some creators of events use large sum of money to find audience.
 
 ### Proposed Solution
-An Web Application for posting events and registering free of charge. User can post events and see a list of people who registered for that event, making it easy to get back to people. User must signin to create event and also unregistered user can view and also register for events.
+A Web Application for posting events and registering free of charge. User can post events and see a list of people who registered for that event, making it easy to get back to people. User must signin to create event and also unregistered user can view and also register for events.
 
 ### Proposed Stack
 - Node js
