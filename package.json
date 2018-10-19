@@ -1,0 +1,38 @@
+{
+  "name": "naijahacks-achievers",
+  "version": "1.0.0",
+  "description": "A Web Application for Creating and displaying events",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Danielshow/naijahacks-achievers.git"
+  },
+  "keywords": [
+    "Event",
+    "Javascript",
+    "naijahacks",
+    "teamAchievers"
+  ],
+  "author": "Team Acheivers",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.11.0",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.4",
+    "nyc": "^13.1.0",
+    "pg": "^7.5.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^5.7.0"
+  }
+}
