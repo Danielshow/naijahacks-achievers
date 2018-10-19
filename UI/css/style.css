@@ -68,7 +68,7 @@ body {
 /* slide */
 
 .cover {
-  background-image: url('../images/bg/jumb-md.jpg');
+  background-image: url('../images/bg/coverImg.jpg');
   width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -102,6 +102,13 @@ body {
 .jumbotron {
   background: rgba(159, 65, 101, 0.51);
   color: #f8f9fa;
+  animation-name: jumbo;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes jumbo {
+  0%{opacity: 0};
+  100%{opacity: 1}
 }
 
 .jumbotron p {
@@ -230,6 +237,90 @@ video {
   background: #999;
   cursor: pointer;
 }
+#slido{
+  display: none;
+}
+.slido1{
+  right: -10000px;
+  animation-name: slido1;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+@keyframes slido1 {
+  0%{right: -10000px}
+  100%{right: 0px}
+}
+.slido2{
+  right: -10000px;
+  animation-name: slido2;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes slido2 {
+  0%{right: -10000px}
+  100%{right: 0px}
+}
+.slido3{
+  right: -10000px;
+  animation-name: slido3;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes slido3 {
+  0%{right: -10000px}
+  100%{right: 0px}
+}
+.slido4{
+  right: -10000px;
+  animation-name: slido4;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes slido4 {
+  0%{right: -10000px}
+  100%{right: 0px}
+}
+.slido5{
+  right: -10000px;
+  animation-name: slido5;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes slido5 {
+  0%{right: -10000px}
+  100%{right: 0px}
+}
+.slido6{
+  right: -10000px;
+  animation-name: slido6;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;;
+}
+@keyframes slido6 {
+  0%{right: -10000px}
+  100%{right: 0px}
+}
+.slido7{
+  right: -10000px;
+  animation-name: slido7;
+  animation-duration: 3.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes slido7 {
+  0%{right: -10000px}
+  100%{right: 0px}
+}
+.slido8{
+  right: -10000px;
+  animation-name: slido8;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes slido8 {
+  0%{right: -10000px}
+  100%{right: 0px}
+}
+
 /*testimony*/
 .testy {
   width: 100%;
@@ -312,6 +403,13 @@ video {
     width: 17rem;
     margin: auto;
     padding: 0;
+  }
+  #slido{
+    display: block;
+  }
+  .slido1,.slido2,.slido3,.slido4,
+  .slido5,.slido6,.slido7,.slido8{
+    animation-duration: 0s;
   }
 }
 
