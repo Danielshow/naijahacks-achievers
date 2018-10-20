@@ -11,5 +11,7 @@ router.get('/event', EventController.getAllEvent);
 router.get('/event/:id', auth.isValidID, EventController.getOneEvent);
 router.put('/event/:id', auth.verifyToken, [auth.isValidID, db.isUserResource, event.verifyBody, event.verifyDate, event.verifyTime, event.isValidCategory], EventController.updateEvent);
 router.get('/event/:id/user', auth.verifyToken, [auth.isValidID, db.isUserEvent], EventController.getAllEventUser);
+router.delete('/event/:id', auth.verifyToken, [auth.isValidID, db.isUserResource], EventController.deleteEvent);
+router.delete('/event/admin/:id', auth.verifyAdminToken, auth.isValidID, EventController.deleteEvent);
 
 export default router;
