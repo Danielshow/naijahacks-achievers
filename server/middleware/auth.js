@@ -1,5 +1,14 @@
 import jwt from 'jsonwebtoken';
 
+const testEmail = (email) => {
+  const re = /\S+@\S+.\S/;
+  return re.test(email);
+}
+
+const testPassword = (password) => {
+  const re = /\w+/;
+  return re.test(password);
+}
 module.export = {
   verifyToken: (req, res, next) => {
     try {
@@ -20,4 +29,70 @@ module.export = {
       });
     }
   },
+
+  verifyBodyRegister(req, res, next) => {
+    if (!req.body.firstname || req.body.firstname.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'First name must not be empty'
+      })
+    }
+    if (!req.body.lastname || req.body.lastname.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'Last name must not be empty'
+      })
+    }
+    if (!req.body.email || req.body.email.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'Email must not be empty'
+      })
+    }
+    if (!req.body.phonenumber || req.body.phonenumber.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'phonenumber must not be empty'
+      })
+    }
+    if (!req.body.username || req.body.username.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'Username must not be empty'
+      })
+    }
+    if (!req.body.password || req.body.password.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'Password cannot be empty',
+      })
+    }
+    return next()
+  }
+
+  testEmailFormat(req, res, next) => {
+    if (!testEmail(req.body.email)) {
+      return res.status(404).json({
+        status: 400;
+        message: 'Invalid Email Format',
+      })
+    }
+    return next()
+  }
+
+  testPasswordFormat(req, res, next) => {
+    if (!testPassword(req.body.password)) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Password must contain numbers or Letter'
+      })
+    }
+    if (req.body.password.length < 6){
+      return res.status(400).json({
+        status: 400,
+        message: 'Password length must be a minimum of 6 characters',
+      })
+    }
+
+  }
 };
