@@ -51,15 +51,15 @@ export default {
       req.decoded = decoded;
       db.query('select * from event where id=$1', [req.params.id], (err, data) => {
         if (err) {
-          next(err);
+          return next(err);
         }
         if (data.rows.length < 1) {
-          res.status(404).json({
+          return res.status(404).json({
             status: 404,
             message: 'Event not found',
           });
         }
-        if (data.rows[0].userID === req.decoded.userid) {
+        if (data.rows[0].userid === req.decoded.userid) {
           return next();
         }
         return res.status(403).send({

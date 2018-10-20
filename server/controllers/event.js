@@ -76,12 +76,11 @@ class EventController {
 
   updateEvent(req, res, next) {
     const bd = req.body;
-    const query = `Update event SET title=$1,location=$2,startdate=$3,enddate=$4,starttime=$5,endtime=$6,category=$7,image=$8,description=$9,
-        organizer=$10,organizerdescription=$11,userID=$12)`;
+    const query = 'Update event SET title=$1,location=$2,startdate=$3,enddate=$4,starttime=$5,endtime=$6,category=$7,image=$8,description=$9,organizer=$10,organizerdescription=$11,userID=$12';
     const params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), bd.image.trim(), bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
     db.query(query, params, (err) => {
       if (err) {
-        next(err);
+        return next(err);
       }
       return res.status(200).json({
         TYPE: 'POST',
