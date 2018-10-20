@@ -8,7 +8,8 @@ email text NOT NULL UNIQUE,
 phonenumber text NOT NULL,
 username text UNIQUE,
 password text NOT NULL,
-address text
+address text,
+roles roles NOT NULL
 )`, (err) => {
   if (err) {
     console.log(err);

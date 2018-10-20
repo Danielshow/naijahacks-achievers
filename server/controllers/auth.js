@@ -7,8 +7,8 @@ class AuthController {
     // firstname lastname email phonenumber // username password confitm
     const bd = req.body;
     const password = bcrypt.hashSync(bd.password, 10);
-    const params = [bd.firstname.trim().toLowerCase(), bd.lastname.trim().toLowerCase(), bd.email.trim().toLowerCase(), bd.phonenumber.trim().toLowerCase(), bd.username.trim().toLowerCase(), password];
-    const query = 'INSERT INTO USERS(firstname, lastname, email, phonenumber, username, password) VALUES($1,$2,$3,$4,$5,$6)';
+    const params = [bd.firstname.trim().toLowerCase(), bd.lastname.trim().toLowerCase(), bd.email.trim().toLowerCase(), bd.phonenumber.trim().toLowerCase(), bd.username.trim().toLowerCase(), password, 'user'];
+    const query = 'INSERT INTO USERS(firstname, lastname, email, phonenumber, username, password, roles) VALUES($1,$2,$3,$4,$5,$6,$7)';
     db.query(query, params, (err) => {
       if (err) {
         return next(err);

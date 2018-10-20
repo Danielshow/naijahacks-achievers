@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import db from '../db/index';
 
 const testEmail = (email) => {
   const re = /\S+@\S+.\S/;
@@ -29,7 +30,38 @@ export default {
       });
     }
   },
-
+  verifyAdminToken: (req, res, next) => {
+    try {
+      const token = req.headers.authorization.split(' ')[1];
+      const decoded = jwt.verify(token, process.env.JWT_KEY);
+      req.decoded = decoded;
+      db.query('SELECT * from users WHERE email=$1', [decoded.email], (err, data) => {
+        if (err) {
+          return next(err);
+        }
+        if (data.rows.length > 0) {
+          if (data.rows[0].roles === 'admin') {
+            return next();
+          }
+          return res.status(403).json({
+            status: 403,
+            message: 'You are not authorize to do this',
+          });
+        }
+      });
+    } catch (err) {
+      if (req.headers.authorization) {
+        return res.status(401).json({
+          status: 401,
+          message: 'Authentication fail, Incorrect Token',
+        });
+      }
+      return res.status(403).json({
+        status: 403,
+        message: 'Authentication fail, Please provide Token',
+      });
+    }
+  },
   verifyBodyRegister: (req, res, next) => {
     if (!req.body.firstname || req.body.firstname.trim().length < 1) {
       return res.status(206).json({
@@ -123,6 +155,31 @@ export default {
       return res.status(206).json({
         status: 206,
         message: 'password must be included in the body',
+      });
+    }
+    return next();
+  },
+  isValidID: (req, res, next) => {
+    if (isNaN(req.params.id) || Number(req.params.id) > 9000) {
+      return res.status(403).json({
+        status: 403,
+        message: 'ID must be a number and less than 9000',
+      });
+    }
+    return next();
+  },
+  verifyRoles: (req, res, next) => {
+    if (!req.body.roles || req.body.roles.trim().length < 1) {
+      return res.status(400).json({
+        status: 400,
+        message: 'roles must be included in the body',
+      });
+    }
+    const roles = req.body.roles.toLowerCase();
+    if (roles !== 'admin' && roles !== 'user') {
+      return res.status(400).json({
+        status: '400',
+        message: 'Roles must be either Admin or Users',
       });
     }
     return next();
