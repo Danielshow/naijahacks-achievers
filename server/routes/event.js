@@ -10,5 +10,6 @@ router.post('/event', auth.verifyToken, [event.verifyBody, event.verifyDate, eve
 router.get('/event', EventController.getAllEvent);
 router.get('/event/:id', auth.isValidID, EventController.getOneEvent);
 router.put('/event/:id', auth.verifyToken, [auth.isValidID, db.isUserResource, event.verifyBody, event.verifyDate, event.verifyTime, event.isValidCategory], EventController.updateEvent);
+router.get('/event/:id/user', auth.verifyToken, [auth.isValidID, db.isUserEvent], EventController.getAllEventUser);
 
 export default router;

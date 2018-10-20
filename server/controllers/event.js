@@ -103,6 +103,27 @@ class EventController {
       });
     });
   }
+
+  getAllEventUser(req, res, next) {
+    db.query('SELECT * from event where userid=$1', [req.params.id], (err, data) => {
+      if (err) {
+        return next(err)
+      }
+      if (data.rows[0] < 1) {
+        return res.status(404).json({
+          TYPE: 'GET',
+          status: 404,
+          message: 'User event not found',
+        })
+      }
+      return res.status(200).json({
+        TYPE: 'GET',
+        status: 200,
+        data: data.rows,
+        message: 'User Event returned successfully',
+      })
+    })
+  }
 }
 
 const eventController = new EventController();
