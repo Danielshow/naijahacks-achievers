@@ -8,7 +8,8 @@
     "build": "rm -rf build/ && babel ./server --out-dir build/ ",
     "remove_table": "node ./build/db/removeTable.js",
     "create_table": "node ./build/db/createTable.js",
-    "table": "npm run remove_table && npm run create_table"
+    "admin": "node ./build/db/admin.js",
+    "table": "npm run remove_table && npm run create_table && npm run admin"
   },
   "repository": {
     "type": "git",

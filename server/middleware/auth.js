@@ -169,13 +169,14 @@ export default {
     return next();
   },
   verifyRoles: (req, res, next) => {
-    const roles = req.body.roles.toLowerCase();
     if (!req.body.roles || req.body.roles.trim().length < 1) {
       return res.status(400).json({
         status: 400,
         message: 'roles must be included in the body',
       });
-    } if (roles !== 'admin' && roles !== 'user') {
+    }
+    const roles = req.body.roles.toLowerCase();
+    if (roles !== 'admin' && roles !== 'user') {
       return res.status(400).json({
         status: '400',
         message: 'Roles must be either Admin or Users',

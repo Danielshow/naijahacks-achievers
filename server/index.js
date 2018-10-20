@@ -2,6 +2,7 @@ import express from 'express';
 import env from 'dotenv';
 import bodyParser from 'body-parser';
 import authRoutes from './routes/auth';
+import userRoutes from './routes/users';
 
 env.config();
 const app = express();
@@ -26,6 +27,7 @@ app.use((err, req, res, next) => {
 });
 // routes needed
 app.use('/api/v1', authRoutes);
+app.use('/api/v1', userRoutes);
 
 app.get('/', (req, res, next) => res.status(200).json({
   status: 200,
