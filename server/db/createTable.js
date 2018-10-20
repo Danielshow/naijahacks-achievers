@@ -14,4 +14,28 @@ roles roles NOT NULL
   if (err) {
     console.log(err);
   }
+  db.query(`CREATE TABLE event(
+    id serial PRIMARY KEY,
+    title text NOT NULL,
+    location text NOT NULL,
+    startdate date NOT NULL,
+    enddate date NOT NULL,
+    starttime time without time zone NOT NULL,
+    endtime time without time zone NOT NULL,
+    category category NOT NULL,
+    image text NOT NULL,
+    description text NOT NULL,
+    organizer text NOT NULL,
+    organizerdescription text NOT NULL,
+    userID integer References users(id) on DELETE CASCADE
+  )`, (error) => {
+    if (error) {
+      console.log(error);
+    }
+  });
 });
+
+// event title, location, start and end date, start and end time, category = [music, sport,
+// art, business, \
+// conference, party, festival]
+// science and technology, picture of event, description, organizer name
