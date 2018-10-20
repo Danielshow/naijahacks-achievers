@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && nodemon ./build/index.js",
-    "build": "rm -rf build/ && babel ./server --out-dir build/ "
+    "build": "rm -rf build/ && babel ./server --out-dir build/ ",
+    "create_table": "node ./build/db/createTable.js"
   },
   "repository": {
     "type": "git",
