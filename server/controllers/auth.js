@@ -47,6 +47,7 @@ class AuthController {
             status: 200,
             data: {
               token,
+              data: data.rows[0].roles,
             },
             message: 'Login Successful',
           });

@@ -9,7 +9,7 @@ class EventController {
       $7,$8,$9,$10,$11,$12)`;
     const params = `[${bd.title.trim()}, ${bd.location.trim()}, ${bd.startdate.trim()}, ${bd.enddate.trim()},
       ${bd.starttime.trim()}, ${bd.endtime.trim()}, ${bd.category.trim()}, ${bd.image.trim()}, ${bd.description.trim()},
-      ${bd.organizer.trim()}, ${bd.organizerdescription.trim()}, 1]`;
+      ${bd.organizer.trim()}, ${bd.organizerdescription.trim()}, ${req.decoded.userid}]`;
     db.query(query, params, (err) => {
       if (err) {
         next(err);
@@ -27,10 +27,25 @@ class EventController {
           category: bd.category.trim(),
           image: bd.image.trim(),
           description: bd.description.trim(),
-          organizer: bd.image.organizer.trim(),
+          organizer: bd.organizer.trim(),
           organizerdescription: bd.organizerdescription.trim(),
-          userID: 1,
+          userID: req.decoded.userid,
         },
+        message: 'Event created successfully',
+      });
+    });
+  }
+
+  getAllEvent(req, res, next) {
+    db.query('SELECT * from event', (err, data) => {
+      if (err) {
+        next(err);
+      }
+      return res.status(200).json({
+        TYPE: 'GET',
+        status: 200,
+        data,
+        message: 'All Events returned successfully',
       });
     });
   }

@@ -37,6 +37,18 @@ export default {
         message: 'EndDate not included in body',
       });
     }
+    if (!bd.starttime || bd.starttime.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'startTime not included in body',
+      });
+    }
+    if (!bd.endtime || bd.endtime.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'EndTime not included in body',
+      });
+    }
     if (!bd.category || bd.category.trim().length < 1) {
       return res.status(206).json({
         status: 206,
@@ -73,7 +85,7 @@ export default {
     if (!validateDate(req.body.startdate.trim()) || !validateDate(req.body.enddate.trim())) {
       return res.status(400).json({
         status: 400,
-        message: 'Date must be in the format dd/mm/yyyy',
+        message: 'Date must be in the format dd:mm:yyyy',
       });
     }
     const startdateList = req.body.startdate.trim().split(':');
