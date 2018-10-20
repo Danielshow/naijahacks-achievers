@@ -35,6 +35,18 @@ roles roles NOT NULL
   });
 });
 
+db.query(`CREATE TABLE eventusers(
+id serial PRIMARY KEY,
+name text NOT NULL,
+email text NOT NULL UNIQUE,
+phonenumber text NOT NULL,
+eventid Integer NOT NULL Reference event(id) on DELETE CASCADE
+)`, (err) => {
+  if (err) {
+    console.log(err);
+  }
+});
+
 // event title, location, start and end date, start and end time, category = [music, sport,
 // art, business, \
 // conference, party, festival]
