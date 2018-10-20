@@ -24,6 +24,14 @@ var _users = require('./routes/users');
 
 var _users2 = _interopRequireDefault(_users);
 
+var _event = require('./routes/event');
+
+var _event2 = _interopRequireDefault(_event);
+
+var _usersort = require('./routes/usersort');
+
+var _usersort2 = _interopRequireDefault(_usersort);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _dotenv2.default.config();
@@ -50,6 +58,8 @@ app.use(function (err, req, res, next) {
 // routes needed
 app.use('/api/v1', _auth2.default);
 app.use('/api/v1', _users2.default);
+app.use('/api/v1', _event2.default);
+app.use('/api/v1', _usersort2.default);
 
 app.get('/', function (req, res, next) {
   return res.status(200).json({
