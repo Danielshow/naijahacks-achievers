@@ -39,7 +39,6 @@ db.query(`CREATE TABLE eventusers(
 id serial PRIMARY KEY,
 name text NOT NULL,
 email text NOT NULL UNIQUE,
-phonenumber text NOT NULL,
 eventid Integer NOT NULL Reference event(id) on DELETE CASCADE
 )`, (err) => {
   if (err) {
