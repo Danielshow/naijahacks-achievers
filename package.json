@@ -6,7 +6,9 @@
   "scripts": {
     "start": "npm run build && nodemon ./build/index.js",
     "build": "rm -rf build/ && babel ./server --out-dir build/ ",
-    "create_table": "node ./build/db/createTable.js"
+    "remove_table": "node ./build/db/removeTable.js",
+    "create_table": "node ./build/db/createTable.js",
+    "table": "npm run remove_table && npm run create_table"
   },
   "repository": {
     "type": "git",

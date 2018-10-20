@@ -7,7 +7,7 @@ class AuthController {
     // firstname lastname email phonenumber // username password confitm
     const bd = req.body;
     const password = bcrypt.hashSync(bd.password, 10);
-    const params = [bd.firstname, bd.lastname, bd.email, bd.phonenumber, bd.username, password];
+    const params = [bd.firstname.trim().toLowerCase(), bd.lastname.trim().toLowerCase(), bd.email.trim().toLowerCase(), bd.phonenumber.trim().toLowerCase(), bd.username.trim().toLowerCase(), password];
     const query = 'INSERT INTO USERS(firstname, lastname, email, phonenumber, username, password) VALUES($1,$2,$3,$4,$5,$6)';
     db.query(query, params, (err) => {
       if (err) {
@@ -17,10 +17,11 @@ class AuthController {
         TYPE: 'POST',
         status: 200,
         data: {
-          username: req.body.name.trim(),
+          username: bd.username.trim(),
           phonenumber: bd.phonenumber.trim(),
           email: req.body.email.trim(),
-          address: req.body.address.trim(),
+          firstname: bd.firstname.trim(),
+          lastname: bd.lastname.trim(),
         },
         message: 'Registered Successfully',
       });
@@ -28,7 +29,7 @@ class AuthController {
   }
 
   login(req, res, next) {
-    db.query('SELECT * from users WHERE username=$1', [req.body.email.toLowerCase()], (err, data) => {
+    db.query('SELECT * from users WHERE email=$1', [req.body.email.trim().toLowerCase()], (err, data) => {
       if (err) {
         return next(err);
       }

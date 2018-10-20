@@ -9,7 +9,7 @@ const testPassword = (password) => {
   const re = /\w+/;
   return re.test(password);
 };
-module.export = {
+export default {
   verifyToken: (req, res, next) => {
     try {
       const token = req.headers.authorization.split(' ')[1];
@@ -67,11 +67,16 @@ module.export = {
         message: 'Password cannot be empty',
       });
     }
-
     if (!req.body.confirmpassword || req.body.confirmpassword.trim().length < 1) {
       return res.status(206).json({
         status: 206,
         message: 'confirmpassword must not be empty',
+      });
+    }
+    if (req.body.phonenumber.length !== 11) {
+      return res.status(400).json({
+        status: 400,
+        message: 'phonenumber length must be equal to 11',
       });
     }
     return next();
@@ -104,6 +109,20 @@ module.export = {
       return res.status(400).json({
         status: 400,
         message: 'Password and Confirmpassword not equal',
+      });
+    }
+    return next();
+  },
+  verifySignin: (req, res, next) => {
+    if (!req.body.email || req.body.email.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'Email must be included in the body',
+      });
+    } if (!req.body.password || req.body.password.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'password must be included in the body',
       });
     }
     return next();
