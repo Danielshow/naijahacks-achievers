@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && nodemon ./build/index.js",
-    "build": "rm -rf build/ && babel ./server --out-dir build/ "
+    "build": "rm -rf build/ && babel ./server --out-dir build/ ",
+    "remove_table": "node ./build/db/removeTable.js",
+    "create_table": "node ./build/db/createTable.js",
+    "table": "npm run remove_table && npm run create_table"
   },
   "repository": {
     "type": "git",
