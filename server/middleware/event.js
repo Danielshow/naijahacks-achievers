@@ -128,6 +128,12 @@ export default {
     return next();
   },
   isValidCategory: (req, res, next) => {
+    if (!req.body.category || req.body.category.trim().length < 1) {
+      return res.status(206).json({
+        status: '206',
+        message: 'category must not be empty',
+      });
+    }
     for (let i = 0; i < category.length; i += 1) {
       if (req.body.category.trim().toLowerCase() === category[i]) {
         return next();
@@ -137,5 +143,20 @@ export default {
       status: 400,
       message: "category must be one of these  ['music', 'sport', 'art', 'business', 'conference', 'party', 'festival', 'science and technology']",
     });
+  },
+  verifyEventRegister: (req, res, next) => {
+    if (!req.body.name || req.body.name.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'Name not Included in body',
+      });
+    }
+    if (!req.body.email || req.body.email.trim().length < 1) {
+      return res.status(206).json({
+        status: 206,
+        message: 'Email not Included in body',
+      });
+    }
+    return next();
   },
 };
