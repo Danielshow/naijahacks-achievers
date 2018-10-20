@@ -26,7 +26,7 @@ class UserSort {
   registerForEvent(req, res, next) {
     const bd = req.body;
     const params = [bd.name.trim(), bd.email.trim(), req.params.id];
-    db.query('INSERT INTO eventusers(name, email, phonenumber, eventid) VALUES($1,$2,$3,$4)', params, (err) => {
+    db.query('INSERT INTO eventusers(name, email, eventid) VALUES($1,$2,$3)', params, (err) => {
       if (err) {
         return next(err);
       }

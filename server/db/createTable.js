@@ -33,18 +33,19 @@ roles roles NOT NULL
       console.log(error);
     }
   });
+  db.query(`CREATE TABLE eventusers(
+  id serial PRIMARY KEY,
+  name text NOT NULL,
+  email text NOT NULL UNIQUE,
+  eventid Integer NOT NULL References event(id) on DELETE CASCADE
+  )`, (err) => {
+    if (err) {
+      console.log(err);
+    }
+  });
 });
 
-db.query(`CREATE TABLE eventusers(
-id serial PRIMARY KEY,
-name text NOT NULL,
-email text NOT NULL UNIQUE,
-eventid Integer NOT NULL Reference event(id) on DELETE CASCADE
-)`, (err) => {
-  if (err) {
-    console.log(err);
-  }
-});
+
 
 // event title, location, start and end date, start and end time, category = [music, sport,
 // art, business, \

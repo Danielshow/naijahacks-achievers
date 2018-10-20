@@ -44,6 +44,26 @@ export default {
       });
     });
   },
+  isEmailInRegister: (req, res, next) => {
+    db.query('SELECT * from eventusers where eventid = $1', [req.params.id], (err, data) => {
+      if (err) {
+        return next(err);
+      }
+      if (data.rows.length < 1) {
+        return next();
+      }
+      for (let i = 0; i < data.rows.length; i += 1) {
+        if (data.rows[i].email === req.body.email.trim().toLowerCase()) {
+          return res.status(409).json({
+            status: 409,
+            message: 'Email already exists',
+          });
+        }
+      }
+      return next();
+    });
+  },
+
   isUserResource: (req, res, next) => {
     try {
       const token = req.headers.authorization.split(' ')[1];
