@@ -3,7 +3,6 @@ logs
 npm-debug.log*
 # nyc test coverage
 .nyc_output
-build
 # Dependency directories
 node_modules/
 .npm
