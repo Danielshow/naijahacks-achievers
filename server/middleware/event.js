@@ -1,7 +1,7 @@
 const category = ['music', 'sport', 'art', 'business', 'conference', 'party', 'festival', 'science and technology'];
 
 const validateDate = (date) => {
-  const re = /\d{2}-\d{2}-\d{4}/;
+  const re = /\d{4}-\d{2}-\d{2}/;
   return re.test(date);
 };
 
@@ -85,12 +85,12 @@ export default {
     if (!validateDate(req.body.startdate.trim()) || !validateDate(req.body.enddate.trim())) {
       return res.status(400).json({
         status: 400,
-        message: 'Date must be in the format dd-mm-yyyy',
+        message: 'Date must be in the format yyyy-mm-dd',
       });
     }
     const startdateList = req.body.startdate.trim().split('-');
     const enddateList = req.body.enddate.trim().split('-');
-    if (Number(startdateList[0]) > 31 || Number(enddateList[0]) > 31) {
+    if (Number(startdateList[2]) > 31 || Number(enddateList[2]) > 31) {
       return res.status(400).json({
         status: 400,
         message: 'Date cannot be greater than 31',
