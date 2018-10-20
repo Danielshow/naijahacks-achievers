@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ProfilePage</title>
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/userProfileSetUp.css">
+  <!-- script -->
+  <script src="javascript/jquery.js" charset="utf-8"></script>
+
+</head>
+<body>
+  <!-- sidenav -->
+
+    <div id="mysidenav" class="sidenav">
+      <ul>
+        <li>
+          <a href="./profilePage.htm"><img src="./images/avatar/users.png" alt="user picture" class="image-fluid userPix"> </a>
+          <p>[username]</p>
+        </li>
+        <li>
+          <a class="dropdown-toggle" href="#" id="eventDropdown">
+      Event
+    </a>
+          <div class="dropAccount" id="eventdrop">
+            <a href="./index.html#createEvent">Browse Event</a>
+            <div class="dropdown-divider"></div>
+            <a href="./profile_createEvent.html">Create Event</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Ticket</a>
+        </li>
+        <li>
+          <a href="./index.html">Log out</a>
+        </li>
+      </ul>
+
+    </div>
+
+    <!-- Main area of the web page -->
+
+    <!-- navbar -->
+    <div class="container-fluid" id="main">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="./index.html">EventRock</a>
+        <!-- openNav button -->
+        <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <!-- closeNav button -->
+        <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
+
+
+        <div class="remove collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <p>[username]</p>
+            <li class="nav-item active">
+              <a href="./profilePage.htm"><img src="./images/avatar/users.png" alt="user picture" class="image-fluid userPix"> </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Event
+                  </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="./index.html#createEvent">Browse Event</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="./profile_createEvent.html">Create Event</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ticket</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="./index.html">Log out</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+    <div class="container-fluid">
+      <div class="row col-12 mt-4">
+        <div class="col-md-4 text-center mt-5 mb-5">
+            <img src="./images/avatar/profilePix.png" alt="profilePix" class=" profilePix"><br>
+            <button type="button" name="button" class="btn btn-primary mt-2">change</button> <br>
+            <p>[username]</p>
+        </div>
+        <div class="col-md-7 ">
+          <form class="form-group">
+            <p>Contact Information</p>
+            <div class="form-group">
+              <label>FIRST NAME</label>
+              <input type="text" value="[regFname]" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>MIDDLE NAME</label>
+              <input type="text" value="[regMname]" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>LAST NAME</label>
+              <input type="text" value="[regLname]" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>EMAIL</label>
+              <input type="email" value="[regEmail]" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>JOB TITLE</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>COMPANY</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>COMPANY ADDRESS</label>
+              <textarea rows="3" cols="8" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label>WEBSITE</label>
+              <input type="text" class="form-control">
+            </div>
+            <hr class="light">
+            <p>Home Address</p>
+            <div class="form-group">
+              <label>ADDRESS</label>
+              <textarea rows="3" cols="8" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label>CITY</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>STATE</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>COUNTRY</label>
+              <input type="text" class="form-control">
+            </div>
+            <button type="button" class="btn btn-info col-12" name="button">SAVE</button>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div style="height: 25px">
+
+    </div>
+    <!-- last div -->
+  </div>
+
+  <!-- script -->
+  <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
+  <script src="javascript/userProfileSetUp.js" charset="utf-8"></script>
+  <script>
+    $("#navbarDropdown").on('click', () => {
+      $("#dropAcc").toggle()
+    })
+    $("#eventDropdown").on('click', () => {
+      $("#eventdrop").toggle()
+    })
+  </script>
+</body>
+</html>
