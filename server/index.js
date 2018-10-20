@@ -3,6 +3,7 @@ import env from 'dotenv';
 import bodyParser from 'body-parser';
 import authRoutes from './routes/auth';
 import userRoutes from './routes/users';
+import eventRoutes from './routes/event';
 
 env.config();
 const app = express();
@@ -28,6 +29,7 @@ app.use((err, req, res, next) => {
 // routes needed
 app.use('/api/v1', authRoutes);
 app.use('/api/v1', userRoutes);
+app.use('/api/v1', eventRoutes);
 
 app.get('/', (req, res, next) => res.status(200).json({
   status: 200,

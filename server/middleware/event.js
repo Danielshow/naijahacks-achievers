@@ -58,13 +58,13 @@ export default {
     if (!bd.organizer || bd.organizer.trim().length < 1) {
       return res.status(206).json({
         status: 206,
-        message: 'Location not included in body',
+        message: 'Organizer not included in body',
       });
     }
     if (!bd.organizerdescription || bd.organizerdescription.trim().length < 1) {
       return res.status(206).json({
         status: 206,
-        message: 'Location not included in body',
+        message: 'organizerdescription not included in body',
       });
     }
     return next();
