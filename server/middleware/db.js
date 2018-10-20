@@ -8,7 +8,7 @@ export default {
       }
       if (data.rows.length > 0) {
         return res.status(409).send({
-          status: 400,
+          status: 409,
           message: 'Email already exist',
         });
       }
