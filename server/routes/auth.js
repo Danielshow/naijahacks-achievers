@@ -6,3 +6,5 @@ import check from '../middleware/db';
 const router = express.Router();
 
 router.POST('/auth/signup', [body.verifyBodyRegister, body.testEmailFormat, body.testPasswordFormat, check.isEmailExist], AuthController.registerUser);
+
+export default router;

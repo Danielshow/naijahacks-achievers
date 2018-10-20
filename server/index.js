@@ -1,6 +1,7 @@
 import express from 'express';
 import env from 'dotenv';
 import bodyParser from 'body-parser';
+import authRoutes from './routes/auth';
 
 env.config();
 const app = express();
@@ -23,6 +24,13 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
+// routes needed
+app.use('/api/v1', authRoutes);
+
+app.get('/', (req, res, next) => res.status(200).json({
+  status: 200,
+  message: 'Welcome to Event Creator API',
+}));
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');
