@@ -1,12 +1,11 @@
 import { Router } from 'express';
 import UsersController from '../controllers/users';
-import checkAuth from '../middleware/checkAuth';
-import valid from '../middleware/auth';
+import check from '../middleware/auth';
 
 const router = Router();
 
-router.get('/users', checkAuth.verifyAdminToken, UsersController.getAllUsers);
-router.delete('/users', checkAuth.verifyToken, UsersController.deleteAccount);
-router.delete('/users/:id', checkAuth.verifyAdminToken, valid.isValidID, UsersController.deleteUsers);
-router.put('/users/:id', checkAuth.verifyAdminToken, valid.isValidID, valid.verifyRoles, UsersController.promoteUsers);
+router.get('/users', check.verifyAdminToken, UsersController.getAllUsers);
+router.delete('/users', check.verifyToken, UsersController.deleteAccount);
+router.delete('/users/:id', check.verifyAdminToken, check.isValidID, UsersController.deleteUsers);
+router.put('/users/:id', check.verifyAdminToken, check.isValidID, check.verifyRoles, UsersController.promoteUsers);
 export default router;
