@@ -10,7 +10,8 @@ class EventController {
       image = req.file.path;
     }
     const bd = req.body;
-    cloudinary.uploade.upload(image, (result) => {
+    cloudinary.uploader.upload(image, (result) => {
+      console.log(result);
       const query = `INSERT INTO event(title,location,startdate,enddate,starttime,endtime,category,image,description,
         organizer,organizerdescription,userID) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`;
       const params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), result.secure_url, bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
@@ -29,7 +30,7 @@ class EventController {
             starttime: bd.starttime.trim(),
             endtime: bd.endtime.trim(),
             category: bd.category.trim(),
-            image: bd.image.trim(),
+            image: result.secure_url,
             description: bd.description.trim(),
             organizer: bd.organizer.trim(),
             organizerdescription: bd.organizerdescription.trim(),
@@ -84,33 +85,41 @@ class EventController {
   }
 
   updateEvent(req, res, next) {
+    let image = null;
+    if (!req.file) {
+      image = req.imagepath;
+    } else {
+      image = req.file.path;
+    }
     const bd = req.body;
-    const query = 'Update event SET title=$1,location=$2,startdate=$3,enddate=$4,starttime=$5,endtime=$6,category=$7,image=$8,description=$9,organizer=$10,organizerdescription=$11,userID=$12';
-    const params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), bd.image.trim(), bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
-    db.query(query, params, (err) => {
-      if (err) {
-        return next(err);
-      }
-      return res.status(200).json({
-        TYPE: 'POST',
-        status: 200,
-        data: {
-          title: bd.title.trim(),
-          location: bd.location.trim(),
-          startdate: bd.startdate.trim(),
-          enddate: bd.enddate.trim(),
-          starttime: bd.starttime.trim(),
-          endtime: bd.endtime.trim(),
-          category: bd.category.trim(),
-          image: bd.image.trim(),
-          description: bd.description.trim(),
-          organizer: bd.organizer.trim(),
-          organizerdescription: bd.organizerdescription.trim(),
-          userID: req.decoded.userid,
-        },
-        message: 'Event updated successfully',
+    cloudinary.uploader.upload(image, (result) => {
+      const query = 'Update event SET title=$1,location=$2,startdate=$3,enddate=$4,starttime=$5,endtime=$6,category=$7,image=$8,description=$9,organizer=$10,organizerdescription=$11,userID=$12';
+      const params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), result.secure_url, bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
+      db.query(query, params, (err) => {
+        if (err) {
+          return next(err);
+        }
+        return res.status(200).json({
+          TYPE: 'POST',
+          status: 200,
+          data: {
+            title: bd.title.trim(),
+            location: bd.location.trim(),
+            startdate: bd.startdate.trim(),
+            enddate: bd.enddate.trim(),
+            starttime: bd.starttime.trim(),
+            endtime: bd.endtime.trim(),
+            category: bd.category.trim(),
+            image: result.secure_url,
+            description: bd.description.trim(),
+            organizer: bd.organizer.trim(),
+            organizerdescription: bd.organizerdescription.trim(),
+            userID: req.decoded.userid,
+          },
+          message: 'Event updated successfully',
+        });
       });
-    });
+    })
   }
 
   getAllEventUser(req, res, next) {
