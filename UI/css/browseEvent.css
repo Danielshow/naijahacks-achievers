@@ -78,7 +78,7 @@ body {
   position: relative;
   width: 100%;
   height: 300px;
-  background: url('../img/event/mapp.jpg');
+  background: url('../images/bg/mapp.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -93,7 +93,7 @@ body {
 }
 
 .search {
-  background: url('../img/event/search.png');
+  background: url('../images/search.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
