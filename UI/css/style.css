@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background: #d6d8db;
 }
 
 /* sidenav push example */
@@ -87,7 +88,6 @@ body {
 
 .jumb{
   width: 100%;
-  overflow-x: hidden;
 }
 .jumb-card {
   width: auto;
@@ -115,36 +115,24 @@ body {
 .jumbotron p {
   font-size: 25px;
   font-family: 'Vivaldi';
-  color: coral;
+  color: #fff;
   font-weight: 700;
   position: relative;
   background: rgba(57, 42, 48, 0.8);
-  animation-name: Jp;
-  animation-duration: 2.5s;
-  animation-fill-mode: forwards;
 }
-@keyframes Jp {
-  0%{margin-top: -10000px};
-  100%{margin-top: 0;}
-}
+
 .jumbotron .btn{
   font-size: 20px;
   padding-top: 10px !important;
   padding-bottom: 10px !important;
   color: #fff;
   background: #e83e8c;
-  position: relative;
-  animation-name: Jbtn;
-  animation-duration: 2.5s;
-  animation-fill-mode: forwards;
+
 }
 .jumbotron .btn:hover{
   opacity: .8;
 }
-@keyframes Jbtn {
-  0%{margin-bottom: -10000px}
-  100%{margin-bottom: 5px;}
-}
+
 label {
   color: #fff;
 }
@@ -240,15 +228,16 @@ label {
 /* catalog */
 
 .img {
+  width: 95%;
   max-width: 100%;
-  height: auto;
-  max-width: 550px;
+  max-height: 400px;
 }
 
 .catalog {
   width: 100%;
   background: #000;
   color: #f8f9fa;
+  overflow-x: hidden;
 }
 
 .catalog h2 {
@@ -402,7 +391,14 @@ label {
   margin-top: .8rem;
   margin-bottom: 1rem;
 }
-
+.footer a{
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.footer a:hover{
+  opacity: 0.8;
+}
 .icon a img {
   width: 25px;
   height: 25px;
@@ -465,7 +461,7 @@ label {
     height: auto;
     position: relative;
     margin: 0 auto;
-    margin-top: -30%;
+    margin-top: -50%;
     margin-left: 0px;
   }
   .mind-bg {
@@ -484,6 +480,7 @@ label {
     width: auto;
     margin: auto;
     padding: 0;
+    margin-right: 10px;
   }
 
   .img3{
@@ -536,12 +533,12 @@ label {
     margin: 0px;
   }
   .jumb-card {
-    width: 65%;
+    width: 75%;
     height: auto;
     position: relative;
     margin: 0 auto;
-    margin-top: -30%;
-    margin-left: 0px;
+    margin-top: -35%;
+    margin-left: -30px;
   }
   .labele {
     display: none;
@@ -571,7 +568,7 @@ label {
     height: auto;
     position: relative;
     margin: 0 auto;
-    margin-top: -32%;
+    margin-top: -38%;
     margin-left: -30px;
   }
   .subscribe {

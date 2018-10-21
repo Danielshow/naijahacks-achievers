@@ -69,10 +69,12 @@ function dateSearch(){
     li = list[i].getElementsByTagName("span")[0];
     if(li.innerHTML.indexOf(filter) != -1){
       list[i].parentNode.style.display = "block";
-    } else if(li.innerHTML.indexOf(filter) == -1){
+    } else{
       list[i].parentNode.style.display = "none";
-        err.style.display = 'block';
-        popup.style.display = 'block';
+    }
+    if(li.innerHTML.indexOf(filter) == -1){
+      err.style.display = 'block';
+      popup.style.display = 'block';
     }
   }
 }
@@ -87,6 +89,8 @@ function eventSearch() {
       list[i].parentNode.style.display = "block";
     } else {
       list[i].parentNode.style.display = "none";
+    }
+    if(li.innerHTML.indexOf(filter) == -1){
       err.style.display = 'block';
       popup.style.display = 'block';
     }
