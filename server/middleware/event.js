@@ -55,12 +55,6 @@ export default {
         message: 'category not included in body',
       });
     }
-    if (!bd.image || bd.image.trim().length < 1) {
-      return res.status(206).json({
-        status: 206,
-        message: 'Image not included in body',
-      });
-    }
     if (!bd.description || bd.description.trim().length < 1) {
       return res.status(206).json({
         status: 206,
@@ -158,5 +152,13 @@ export default {
       });
     }
     return next();
+  },
+  isFileAvailable: (req, res, next) => {
+    if (!req.file) {
+      req.imagepath = 'https://res.cloudinary.com/fast-food/image/upload/v1539909326/l0cvazx1fh1x8cjeu9ag.jpg';
+      return next();
+    }
+    return next();
+    // return `${req.protocol}://${req.headers.host}/${req.file.path}`;
   },
 };
