@@ -87,66 +87,71 @@ hr.light{
   border-top: .5px solid #d6d8d9;
   padding: 10px;
 }
-/* custom radio */
-.radio{
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-/* hide the browser's default radio button */
-.radio input{
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-/* create custom radio */
-.radio .check{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 16px;
-  width: 16px;
-  background: #eee;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-}
-/* an mouse-over, add border color */
-.radio:hover input ~ .check{
-  border: solid 2px #60292e;
-}
-/* add background color when the radio is checked */
-.radio input:checked ~ .check{
-  background: #60292e;
-  border: none;
-}
-/* create the radio and hide when not checked */
-.radio .check:after{
-  content: "";
-  position: absolute;
-  display: none;
-}
-/* show the radio when checked */
-.radio input:checked ~ .check:after{
-  display: block;
-}
-/* radio style */
-.radio .check:after{
-  left: 4px;
-  top: 4px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-}
-
+/* checkbox */
+  .checkbox{
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  /* hide the browser's default checkbox */
+  .checkbox input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  /* create custom checkbox */
+  .checkbox .check{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background 0.5s
+  }
+  /* an mouse-over, add border color */
+  .checkbox:hover input ~ .check{
+    border: solid 2px #60292e;
+  }
+  /* add background color when the checkbox is checked */
+  .checkbox input:checked ~ .check{
+    background: #60292e;
+    border: none;
+    transition: background 0.5s
+  }
+  /* create the checkmark and hide when not checked */
+  .checkbox .check:after{
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  /* show the checkmark when checked */
+  .checkbox input:checked ~ .check:after{
+    display: block;
+  }
+  /* checkmark style */
+  .checkbox .check:after{
+    left: 4px;
+    top: 5px;
+    width: 9px;
+    height: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    border-width: 0 0 3px 3px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
 
 /* end */
 
