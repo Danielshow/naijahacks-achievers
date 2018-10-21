@@ -8,7 +8,7 @@ class EventController {
     const params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), bd.image.trim(), bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
     db.query(query, params, (err) => {
       if (err) {
-        next(err);
+        return next(err);
       }
       return res.status(200).json({
         TYPE: 'POST',
