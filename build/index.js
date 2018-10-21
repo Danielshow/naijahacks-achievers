@@ -40,6 +40,8 @@ var app = (0, _express2.default)();
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
 
+app.use(_express2.default.static('UI'));
+
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -61,10 +63,10 @@ app.use('/api/v1', _users2.default);
 app.use('/api/v1', _event2.default);
 app.use('/api/v1', _usersort2.default);
 
-app.get('/', function (req, res, next) {
-  return res.status(200).json({
+app.get('/api/v1', function (req, res) {
+  res.status(200).json({
     status: 200,
-    message: 'Welcome to Event Creator API'
+    message: 'Welcome to EventRock API'
   });
 });
 

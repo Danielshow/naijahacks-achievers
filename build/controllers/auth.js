@@ -108,7 +108,7 @@ var AuthController = function () {
           return next(err);
         }
         if (data.rows.length > 0) {
-          return res.status(200).send({
+          return res.status(200).json({
             type: 'GET',
             status: 200,
             data: data.rows,
