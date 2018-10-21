@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event Page</title>
+  <!-- style -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/eventPage.css">
+  <!-- script -->
+  <script src="./js/jquery.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <!-- sidenav -->
+  <div id="mysidenav" class="sidenav">
+    <ul>
+      <li>
+        <a href="./index.html">Home </a>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="./profile_createEvent.html">Create Event</a>
+      </li>
+      <li>
+        <a class="dropdown-toggle" href="#" id="navbarDropdown">
+    Account
+  </a>
+        <div class="dropAccount" id="dropAcc">
+          <a href="./login.htm">sign in</a>
+          <div class="dropdown-divider"></div>
+          <a href="./login.htm">Register</a>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- Main area of the web page -->
+
+  <!-- navbar -->
+  <div class="container-fluid" id="main">
+    <div class="flx">
+      <div class="flx1">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+          <a class="navbar-brand" href="./index.html">EventRock</a>
+          <!-- openNav button -->
+          <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <!-- closeNav button -->
+          <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
+
+
+          <div class="remove collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./profile_createEvent.html">Create Event</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Account
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="./login.htm">sign in</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="./login.htm">Register</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="map">
+          <form>
+            <div class="input-group searchE">
+              <div class="input-group-prepend">
+                <button type="button" id="maxSearch" name="button" class="btn btn-secondary">
+                      <span class="input-group-text search"></span>
+                    </button>
+              </div>
+              <input type="text" class="form-control" id="byEvent" placeholder="search event..">
+            </div>
+          </form>
+        </div>
+
+        <!-- search by categories -->
+        <div class="caty text-center ">
+          <h2>Choice of preference...</h2>
+          <div class="row col-12">
+            <div class="col-lg-2 col-md-6 col-sm-4 lg">
+              <!-- <label>By Categories</label> -->
+              <select class="form-control" id="catalog" name="">
+                  <option value="">--</option>
+                  <option value="music">Music</option>
+                  <option value="arts">Arts</option>
+                  <option value="business">Business</option>
+                  <option value="sport">Sport</option>
+                  <option value="party">Party</option>
+                  <option value="festival">Festival</option>
+                  <option value="sciTech">Science & Tech.</option>
+                  <option value="conference">Conference</option>
+                </select>
+              <!-- <hr class="md"> -->
+            </div>
+
+            <div class="col-lg-10 col-md-6 col-sm-6">
+              <div class="date">
+                <a href="#"><span class="btn btn-primary active" id="today">Today</span></a>
+                <a href="#"><span class="btn btn-outline-secondary" id="tomorrow">Tomorrow</span></a>
+                <a href="#"><span class="btn btn-outline-secondary" id="this_week">This week</span></a>
+                <a href="#"><span class="btn btn-outline-secondary" id="this_month">This month</span></a>
+                <a href="#"><span class="btn btn-outline-secondary" id="next_month">Next Month</span></a>
+              </div>
+              <form class="form-inline month">
+                <div class="input-group">
+                  <input type="month" placeholder="search by month" id="byMonth" class="form-control">
+                  <div class="input-group-prepend">
+                    <button type="button" name="button" class="btn btn-primary" id="minSearch">
+                              <span class="input-group-text search"></span>
+                            </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="flx2">
+
+            <!-- The Modal -->
+            <!-- Error popup -->
+            <div id="popup">
+              <div class="error" id="err">
+                <p>Oops! No such event.</p>
+                <a href="#">
+                      <button type="button" name="button" class="btn btn-info" id="ok">ok</button>
+                    </a>
+              </div>
+            </div>
+            <!-- view event popup -->
+            <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <img src="img/testy (3).png" class="modal-content" id="img01">
+              <div id="caption">
+                <h6>Amni Petroleum Ltd.</h6>
+                <span>Sat Oct 20 2018</span>
+                <form>
+                  <div class="form-group ">
+                    <label>Name</label>
+                    <input type="text" placeholder="name..." class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="email..." class="form-control" required>
+                  </div>
+                  <button type="button" class="btn btn-info col-12" name="button">Register</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- card -->
+            <div class="catalog">
+              <div class="fl">
+                <div class="fl2 today business">
+                  <img src="img/testy (3).png" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+                <div class="fl2 today music">
+                  <img src="img/testy (3).png" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+                <div class="fl2 today arts">
+                  <img src="C:\Users\SaMaDoR\AppData\Local\atom\SaMaDoR\MyGuess\img\bgImage.jpg" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+                <div class="fl2 tomorrow business">
+                  <img src="img/testy (3).png" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+                <div class="fl2 tomorrow music">
+                  <img src="img/testy (3).png" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+                <div class="fl2 tomorrow arts">
+                  <img src="C:\Users\SaMaDoR\AppData\Local\atom\SaMaDoR\MyGuess\img\bgImage.jpg" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+                <div class="fl2 this_week festival">
+                  <img src="img/testy (3).png" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+                <div class="fl2 this_week sciTech">
+                  <img src="img/testy (3).png" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+                <div class="fl2 this_week party">
+                  <img src="C:\Users\SaMaDoR\AppData\Local\atom\SaMaDoR\MyGuess\img\bgImage.jpg" class="img">
+                  <div class="details">
+                    <h6>Amni Petroleum Ltd.</h6>
+                    <span>Sat Oct 20 2018</span>
+                    <span><a href="#" class="myImg">view details</a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+      </div>
+      <div class="flx3">
+
+            <!-- footer -->
+            <div class=" text-center footer">
+              <div class="row col-12">
+                <div class="col-md-4">
+                  <hr class="light">
+                  <h2>EventRock</h2>
+                  <hr class="light">
+                  <p>555-555-5555</p>
+                  <p>Email@eventrock.com</p>
+                  <p>100 street name</p>
+                  <p>city, state, 0000</p>
+                </div>
+                <div class="col-md-4">
+                  <hr class="light">
+                  <h2>Contact</h2>
+                  <hr class="light">
+                  <p>555-555-5555</p>
+                  <p>Email@pressgurd.com</p>
+                  <p>100 street name</p>
+                  <p>city, state, 0000</p>
+                </div>
+                <div class="col-md-4 icon">
+                  <hr class="light">
+                  <h2>Follow us</h2>
+                  <hr class="light">
+                  <a href="#"><img src="img/facebook.png" alt="facebook" class="image-fluid"></a>
+                  <a href="#"><img src="img/twitter.png" alt="twitter" class="image-fluid"></a>
+                  <a href="#"><img src="img/google-plus.png" alt="google-plus" class="image-fluid"></a>
+                  <a href="#"><img src="img/instagram.png" alt="instagram" class="image-fluid"></a>
+                  <a href="#"><img src="img/linkedin.png" alt="linkedin" class="image-fluid"></a>
+                </div>
+              </div>
+              <br>
+              <p>&copy; EventRock 2018</p>
+            </div>
+      </div>
+    </div>
+
+
+    <!-- last div -->
+  </div>
+
+
+  <!-- script -->
+  <script src="./js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="./js/eventPage.js" charset="utf-8"></script>
+  <script>
+    $("#navbarDropdown").on('click', () => {
+      $("#dropAcc").toggle()
+    })
+  </script>
+</body>
+
+</html>
