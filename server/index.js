@@ -33,10 +33,12 @@ app.use('/api/v1', userRoutes);
 app.use('/api/v1', eventRoutes);
 app.use('/api/v1', usersortRoute);
 
-app.get('/', (req, res, next) => res.status(200).json({
-  status: 200,
-  message: 'Welcome to Event Creator API',
-}));
+app.get('/api/v1', (req, res) => {
+  res.status(200).json({
+    status: 200,
+    message: 'Welcome to EventRock API',
+  })
+})
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');
