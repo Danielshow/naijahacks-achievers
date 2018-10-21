@@ -157,6 +157,10 @@ button:hover {
 .footer{
   position: absolute;
   top: 95%;
+  width: 100%;
+  height: auto;
+  background: #000;
+  color: #fff;
 }
 .footer h2,  .footer p{
   color: #ddd;
@@ -167,7 +171,16 @@ button:hover {
   margin-top: .8rem;
   margin-bottom: 1rem;
 }
-
+.footer a{
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.footer a:hover{
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.8;
+}
 .icon a img{
   width: 25px;
   height: 25px;
