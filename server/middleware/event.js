@@ -55,12 +55,6 @@ export default {
         message: 'category not included in body',
       });
     }
-    if (!bd.image || bd.image.trim().length < 1) {
-      return res.status(206).json({
-        status: 206,
-        message: 'Image not included in body',
-      });
-    }
     if (!bd.description || bd.description.trim().length < 1) {
       return res.status(206).json({
         status: 206,
@@ -85,7 +79,7 @@ export default {
     if (!validateDate(req.body.startdate.trim()) || !validateDate(req.body.enddate.trim())) {
       return res.status(400).json({
         status: 400,
-        message: 'Date must be in the format yyyy-mm-dd',
+        message: 'Date must be in the format dd-mm-yyyy',
       });
     }
     const startdateList = req.body.startdate.trim().split('-');
@@ -158,5 +152,13 @@ export default {
       });
     }
     return next();
+  },
+  isFileAvailable: (req, res, next) => {
+    if (!req.file) {
+      req.imagepath = 'https://res.cloudinary.com/fast-food/image/upload/v1539239518/samples/imagecon-group.jpg';
+      return next();
+    }
+    return next();
+    // return `${req.protocol}://${req.headers.host}/${req.file.path}`;
   },
 };

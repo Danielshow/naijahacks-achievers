@@ -10,6 +10,10 @@ var _index = require('../db/index');
 
 var _index2 = _interopRequireDefault(_index);
 
+var _cloudinary = require('../middleware/cloudinary');
+
+var _cloudinary2 = _interopRequireDefault(_cloudinary);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23,31 +27,39 @@ var EventController = function () {
   _createClass(EventController, [{
     key: 'createEvent',
     value: function createEvent(req, res, next) {
+      var image = null;
+      if (!req.file) {
+        image = req.imagepath;
+      } else {
+        image = req.file.path;
+      }
       var bd = req.body;
-      var query = 'INSERT INTO event(title,location,startdate,enddate,starttime,endtime,category,image,description,\n      organizer,organizerdescription,userID) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)';
-      var params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), bd.image.trim(), bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
-      _index2.default.query(query, params, function (err) {
-        if (err) {
-          return next(err);
-        }
-        return res.status(200).json({
-          TYPE: 'POST',
-          status: 200,
-          data: {
-            title: bd.title.trim(),
-            location: bd.location.trim(),
-            startdate: bd.startdate.trim(),
-            enddate: bd.enddate.trim(),
-            starttime: bd.starttime.trim(),
-            endtime: bd.endtime.trim(),
-            category: bd.category.trim(),
-            image: bd.image.trim(),
-            description: bd.description.trim(),
-            organizer: bd.organizer.trim(),
-            organizerdescription: bd.organizerdescription.trim(),
-            userID: req.decoded.userid
-          },
-          message: 'Event created successfully'
+      _cloudinary2.default.uploader.upload(image, function (result) {
+        var query = 'INSERT INTO event(title,location,startdate,enddate,starttime,endtime,category,image,description,\n        organizer,organizerdescription,userID) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)';
+        var params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), result.secure_url, bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
+        _index2.default.query(query, params, function (err) {
+          if (err) {
+            return next(err);
+          }
+          return res.status(200).json({
+            TYPE: 'POST',
+            status: 200,
+            data: {
+              title: bd.title.trim(),
+              location: bd.location.trim(),
+              startdate: bd.startdate.trim(),
+              enddate: bd.enddate.trim(),
+              starttime: bd.starttime.trim(),
+              endtime: bd.endtime.trim(),
+              category: bd.category.trim(),
+              image: result.secure_url,
+              description: bd.description.trim(),
+              organizer: bd.organizer.trim(),
+              organizerdescription: bd.organizerdescription.trim(),
+              userID: req.decoded.userid
+            },
+            message: 'Event created successfully'
+          });
         });
       });
     }
@@ -98,31 +110,39 @@ var EventController = function () {
   }, {
     key: 'updateEvent',
     value: function updateEvent(req, res, next) {
+      var image = null;
+      if (!req.file) {
+        image = req.imagepath;
+      } else {
+        image = req.file.path;
+      }
       var bd = req.body;
-      var query = 'Update event SET title=$1,location=$2,startdate=$3,enddate=$4,starttime=$5,endtime=$6,category=$7,image=$8,description=$9,organizer=$10,organizerdescription=$11,userID=$12';
-      var params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), bd.image.trim(), bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
-      _index2.default.query(query, params, function (err) {
-        if (err) {
-          return next(err);
-        }
-        return res.status(200).json({
-          TYPE: 'POST',
-          status: 200,
-          data: {
-            title: bd.title.trim(),
-            location: bd.location.trim(),
-            startdate: bd.startdate.trim(),
-            enddate: bd.enddate.trim(),
-            starttime: bd.starttime.trim(),
-            endtime: bd.endtime.trim(),
-            category: bd.category.trim(),
-            image: bd.image.trim(),
-            description: bd.description.trim(),
-            organizer: bd.organizer.trim(),
-            organizerdescription: bd.organizerdescription.trim(),
-            userID: req.decoded.userid
-          },
-          message: 'Event updated successfully'
+      _cloudinary2.default.uploader.upload(image, function (result) {
+        var query = 'Update event SET title=$1,location=$2,startdate=$3,enddate=$4,starttime=$5,endtime=$6,category=$7,image=$8,description=$9,organizer=$10,organizerdescription=$11,userID=$12';
+        var params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), result.secure_url, bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
+        _index2.default.query(query, params, function (err) {
+          if (err) {
+            return next(err);
+          }
+          return res.status(200).json({
+            TYPE: 'POST',
+            status: 200,
+            data: {
+              title: bd.title.trim(),
+              location: bd.location.trim(),
+              startdate: bd.startdate.trim(),
+              enddate: bd.enddate.trim(),
+              starttime: bd.starttime.trim(),
+              endtime: bd.endtime.trim(),
+              category: bd.category.trim(),
+              image: result.secure_url,
+              description: bd.description.trim(),
+              organizer: bd.organizer.trim(),
+              organizerdescription: bd.organizerdescription.trim(),
+              userID: req.decoded.userid
+            },
+            message: 'Event updated successfully'
+          });
         });
       });
     }
