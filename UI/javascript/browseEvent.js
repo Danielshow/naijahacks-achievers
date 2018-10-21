@@ -64,14 +64,15 @@ function dateSearch(){
   console.log(filter);
   list = document.getElementsByClassName("details");
 
-  res = new RegExp(filter, "gi");
+  //res = new RegExp(filter, "gi");
   for (i = 0; i < list.length; i++) {
     li = list[i].getElementsByTagName("span")[0];
-    if(res.test(li) == true){
+    if(li.innerHTML.indexOf(filter) != -1){
       list[i].parentNode.style.display = "block";
-    } else {
+    } else if(li.innerHTML.indexOf(filter) == -1){
       list[i].parentNode.style.display = "none";
-      err.style.display = 'block';
+        err.style.display = 'block';
+        popup.style.display = 'block';
     }
   }
 }
