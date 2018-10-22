@@ -123,6 +123,7 @@ window.addEventListener('load', () => {
     loadingOverlay.style.display = 'none';
   }
 });
+
 const registerToApi = () => {
   fetch(`${url}/auth/signUp`, {
     method: 'POST',

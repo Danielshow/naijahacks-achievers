@@ -154,7 +154,7 @@ export default {
     return next();
   },
   isFileAvailable: (req, res, next) => {
-    if (!req.file) {
+    if (!req.file || req.file === '' || req.file === null) {
       req.imagepath = 'https://res.cloudinary.com/fast-food/image/upload/v1539239518/samples/imagecon-group.jpg';
       return next();
     }

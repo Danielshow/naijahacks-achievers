@@ -38,6 +38,44 @@ const organizerD = document.getElementById('organizer_description');
 const category = document.getElementsByName('category');
 const submit = document.getElementById('disable');
 const error = document.getElementById('error');
+const loadingOverlay = document.getElementById('loadingOverlay');
+const dialogoverlay = document.getElementById('dialogoverlay');
+const dialogbox = document.getElementById('dialogbox');
+const dialogbody = document.getElementById('dialogbody');
+const url = 'http://localhost:3000/api/v1';
+const close = document.getElementById('closebutton');
+
+let token = '';
+
+window.addEventListener('load', () => {
+  loadingOverlay.style.display = 'flex';
+  if (localStorage.getItem('token') && localStorage.getItem('token') !== 'null') {
+    token = localStorage.getItem('token');
+    fetch(`${url}/auth/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then(response => response.json()).then((data) => {
+      if (data.status !== 200) {
+        loadingOverlay.style.display = 'none';
+        window.location.replace('./signup.html');
+        return;
+      }
+      if (data.status === 200 && data.data[0].roles === 'admin') {
+        loadingOverlay.style.display = 'none';
+        window.location.replace('./admin.html');
+        return;
+      }
+      loadingOverlay.style.display = 'none';
+    }).catch((err) => {
+      loadingOverlay.style.display = 'none';
+      window.location.replace('./signup.html');
+    });
+  } else {
+    loadingOverlay.style.display = 'none';
+    window.location.replace('./signup.html');
+  }
+});
 
 const createEvent = (e) => {
   e.preventDefault();
@@ -86,24 +124,33 @@ const createEvent = (e) => {
     error.innerText = 'Some error occur, Kindly check through the form';
     return;
   }
-
-  console.log(valid);
-  console.log("djdjdjd");
+  // API
   const formData = new FormData(document.forms.createEvent);
-  fetch(`${url}/menu/${id}`, {
-    method: 'PUT',
+  loadingOverlay.style.display = 'flex';
+  fetch(`${url}/event`, {
+    method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
     },
     body: formData,
   }).then(response => response.json()).then((data) => {
     if (data.status === 200) {
-      customAlert.alert('Food Updated successfully');
-      loadAvailableFoods();
+      loadingOverlay.style.display = 'none';
+      dialogbody.innerHTML = `Holla!!!! Event Created <br>
+      Talk about us on social media !!!`
+      dialogbox.style.display = 'block';
+      dialogoverlay.style.display = 'block';
     }
+  }).catch((err) => {
+    loadingOverlay.style.display = 'none';
+    dialogbody.innerHTML = `${err.message}`;
+    dialogbox.style.display = 'block';
+    dialogoverlay.style.display = 'block';
   });
-});
 };
 
-  console.log(document.forms);
+close.addEventListener('click', () => {
+  dialogbox.style.display = 'none';
+  window.location.replace('./create.html')
+})
 submit.addEventListener('click', createEvent);
