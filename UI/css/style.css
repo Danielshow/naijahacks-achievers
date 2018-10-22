@@ -367,7 +367,10 @@ label {
   border-radius: 5%;
   box-shadow: 1px 8px 10px #000;
 }
-
+.testy .card-body{
+  height: 200px;
+  padding: 5px;
+}
 .subscribe {
   width: 50%;
   margin: 10px auto;

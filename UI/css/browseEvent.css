@@ -5,17 +5,7 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
-.flx{
-  display: flex;
-  flex-direction: column;
-}
-.flx3{
-  flex-shrink: 0;
-}
-.flx1{
-  flex-grow: 1;
-}
-/* sidenav push example */
+
 
 .sidenav {
   display: none;
@@ -136,6 +126,9 @@ select:focus, option{
 .catalog .card{
   margin: 5px;
   padding: 0 !important;
+}
+.catalog:empty{
+
 }
 .img{
   width: 100%;
