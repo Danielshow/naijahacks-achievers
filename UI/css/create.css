@@ -20,6 +20,12 @@ body{
   padding-top: 60px;
 }
 
+.error {
+  color: red;
+}
+input.invalid {
+  background-color: #ffdddd;
+}
 .sidenav ul {
   list-style: none;
 }
