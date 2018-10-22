@@ -94,7 +94,35 @@ const loadingOverlay = document.getElementById('loadingOverlay');
 const dialogoverlay = document.getElementById('dialogoverlay');
 const dialogbox = document.getElementById('dialogbox');
 const close = document.getElementById('closebutton');
+let token = '';
 
+window.addEventListener('load', () => {
+  loadingOverlay.style.display = 'flex';
+  if (localStorage.getItem('token') && localStorage.getItem('token') !== 'null') {
+    token = localStorage.getItem('token');
+    fetch(`${url}/auth/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).then(response => response.json()).then((data) => {
+      if (data.status === 200 && data.data[0].roles === 'user') {
+        loadingOverlay.style.display = 'none';
+        window.location.replace('./userProfileSetUp.html');
+        return;
+      }
+      if (data.status === 200 && data.data[0].roles === 'admin') {
+        loadingOverlay.style.display = 'none';
+        window.location.replace('./admin.html');
+        return;
+      }
+      loadingOverlay.style.display = 'none';
+    }).catch((err) => {
+      loadingOverlay.style.display = 'none';
+    });
+  } else {
+    loadingOverlay.style.display = 'none';
+  }
+});
 const registerToApi = () => {
   fetch(`${url}/auth/signUp`, {
     method: 'POST',
@@ -217,6 +245,9 @@ const loginUser = (e) => {
     }),
   }).then(response => response.json()).then((data) => {
     if (data.status === 200) {
+      if (typeof (Storage) !== 'undefined') {
+        localStorage.setItem('token', `${data.data.token}`);
+      }
       window.location.replace('./userProfileSetUp.html');
       return;
     }
