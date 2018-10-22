@@ -107,7 +107,7 @@ window.addEventListener('load', () => {
     }).then(response => response.json()).then((data) => {
       if (data.status === 200 && data.data[0].roles === 'user') {
         loadingOverlay.style.display = 'none';
-        window.location.replace('./userProfileSetUp.html');
+        window.location.replace('./profile.html');
         return;
       }
       if (data.status === 200 && data.data[0].roles === 'admin') {
@@ -248,7 +248,7 @@ const loginUser = (e) => {
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem('token', `${data.data.token}`);
       }
-      window.location.replace('./userProfileSetUp.html');
+      window.location.replace('./profile.html');
       return;
     }
     loginError.innerHTML = data.message;
