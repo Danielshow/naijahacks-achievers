@@ -12,6 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static('UI'));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -33,7 +34,7 @@ app.use('/api/v1', userRoutes);
 app.use('/api/v1', eventRoutes);
 app.use('/api/v1', usersortRoute);
 
-app.get('/', (req, res, next) => res.status(200).json({
+app.get('/api/v1', (req, res, next) => res.status(200).json({
   status: 200,
   message: 'Welcome to Event Creator API',
 }));
