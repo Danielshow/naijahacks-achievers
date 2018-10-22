@@ -1,93 +1,228 @@
-if(!(document.body.style.width > 992 || document.documentElement.style.width > 992)){
-  function openNav() {
-    document.getElementById('mysidenav').style.width = "200px";
-    document.getElementById('main').style.marginLeft = "-200px";
-    document.getElementById('main').style.marginRight = "200px";
-    document.getElementById('openMenu').style.display = "none";
-    document.getElementById('closeMenu').style.display = "block";
-  }
+const openNav = () => {
+  document.getElementById('mysidenav').style.width = '200px';
+  document.getElementById('main').style.marginLeft = '-200px';
+  document.getElementById('main').style.marginRight = '200px';
+  document.getElementById('openMenu').style.display = 'none';
+  document.getElementById('closeMenu').style.display = 'block';
+};
 
-  function closeNav() {
-    document.getElementById('mysidenav').style.width = '0';
-    document.getElementById("main").style.marginLeft = "0";
-    document.getElementById("main").style.marginRight = "0";
-    document.getElementById('openMenu').style.display = "";
-    document.getElementById('closeMenu').style.display = "none";
-  }
-}
-
-
-// register function
-
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the crurrent tab
-
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
-}
-
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
-
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
+const closeNav = () => {
+  document.getElementById('mysidenav').style.width = '0';
+  document.getElementById('main').style.marginLeft = '0';
+  document.getElementById('main').style.marginRight = '0';
+  document.getElementById('openMenu').style.display = '';
+  document.getElementById('closeMenu').style.display = 'none';
+};
 
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
+  const x = document.getElementsByClassName('step');
+  for (let i = 0; i < x.length; i += 1) {
+    x[i].className = x[i].className.replace(' active', '');
   }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active";
+  x[n].className += ' active';
 }
+
+function showTab(n) {
+  const x = document.getElementsByClassName('tab');
+  x[n].style.display = 'block';
+  if (n === 0) {
+    document.getElementById('prevBtn').style.display = 'none';
+  } else {
+    document.getElementById('prevBtn').style.display = 'inline';
+  }
+  if (n === (x.length - 1)) {
+    document.getElementById('nextBtn').innerHTML = 'Submit';
+  } else if (n === (x.length - 2)) {
+    document.getElementById('nextBtn').innerHTML = 'Almost there';
+  } else {
+    document.getElementById('nextBtn').innerHTML = 'Next';
+  }
+  fixStepIndicator(n);
+}
+
+let currentTab = 0;
+showTab(currentTab); // Display the crurrent tab
+
+
+function nextPrev(n) {
+  const x = document.getElementsByClassName('tab');
+  if (n === 1 && !validateForm()) return false;
+  x[currentTab].style.display = 'none';
+  currentTab += n;
+  if (currentTab >= x.length) {
+    document.getElementById('regForm').submit();
+    return false;
+  }
+  showTab(currentTab);
+}
+
+// Link with backend API code
+const url = 'http://localhost:3000/api/v1';
+
+const verifyEmail = (email) => {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email);
+};
+
+const verifyPassword = (password) => {
+  const re = /\w+/;
+  return re.test(password) && password.length >= 6;
+};
+
+const verifyPhone = (number) => {
+  const re = /^\d+$/;
+  return re.test(number) && number.length === 11;
+};
+
+const loginEmail = document.getElementById('loginemail');
+const loginPassword = document.getElementById('loginpassword');
+const loginSubmit = document.getElementById('loginsubmit');
+const loginError = document.getElementById('loginerror');
+const firstname = document.getElementById('firstname');
+const lastname = document.getElementById('lastname');
+const email = document.getElementById('email');
+const phonenumber = document.getElementById('phone');
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+const cpassword = document.getElementById('cpassword');
+const nameerror = document.getElementById('nameerror');
+const contacterror = document.getElementById('contacterror');
+const infoerror = document.getElementById('infoerror');
+const submitRegister = document.getElementById('nextBtn');
+const loadingOverlay = document.getElementById('loadingOverlay');
+const dialogoverlay = document.getElementById('dialogoverlay');
+const dialogbox = document.getElementById('dialogbox');
+const close = document.getElementById('closebutton');
+
+const registerToApi = () => {
+  fetch(`${url}/auth/signUp`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      firstname: firstname.value,
+      lastname: lastname.value,
+      email: email.value,
+      phonenumber: phonenumber.value,
+      username: username.value,
+      password: password.value,
+      confirmpassword: cpassword.value,
+    }),
+  }).then(response => response.json()).then((data) => {
+    if (data.status === 200) {
+      infoerror.innerText = '';
+      loadingOverlay.style.display = 'none';
+      dialogoverlay.style.display = 'block';
+      dialogbox.style.display = 'block';
+      return;
+    }
+    loadingOverlay.style.display = 'none';
+    infoerror.innerText = data.message;
+  }).catch((err) => {
+    loadingOverlay.style.display = 'none';
+    infoerror.innerText = 'Network problem, Please reload';
+  });
+};
+
+const validateForm = () => {
+  let valid = true;
+  if (firstname.value.trim().length < 1) {
+    nameerror.innerText = 'First name cannot be empty';
+    firstname.className += ' invalid';
+    valid = false;
+    return;
+  }
+  if (lastname.value.trim().length < 1) {
+    lastname.className += ' invalid';
+    nameerror.innerText = 'Last name cannot be empty';
+    valid = false;
+    return;
+  }
+  nameerror.innerText = '';
+  if (submitRegister.innerText === 'Almost there') {
+    if (!verifyEmail(email.value)) {
+      contacterror.innerText = 'Email syntax is wrong';
+      email.className += ' invalid';
+      valid = false;
+      return;
+    } if (!verifyPhone(phonenumber.value)) {
+      contacterror.innerText = 'Phone number is Invalid';
+      phonenumber.className += ' invalid';
+      valid = false;
+      return;
+    }
+  }
+  contacterror.innerText = '';
+  if (submitRegister.innerText === 'Submit') {
+    if (username.value.trim().length < 1) {
+      infoerror.innerText = 'Username cannot be empty';
+      username.className += ' invalid';
+      valid = false;
+      return;
+    }
+    if (!verifyPassword(password.value)) {
+      infoerror.innerText = 'Number or Alphabets must be Included in password';
+      password.className += ' invalid';
+      valid = false;
+      return;
+    }
+    if (password.value !== cpassword.value) {
+      infoerror.innerText = 'Confirm password and Password not equal';
+      cpassword.className += ' invalid';
+      valid = false;
+      return;
+    }
+    loadingOverlay.style.display = 'flex';
+    return registerToApi();
+  }
+  if (valid) {
+    document.getElementsByClassName('step')[currentTab].className += ' finish';
+  }
+  return valid;
+};
+
+close.addEventListener('click', () => {
+  dialogoverlay.style.display = 'none';
+  dialogbox.style.display = 'none';
+  window.location.replace('./signUp.html');
+});
+
+const loginUser = (e) => {
+  e.preventDefault();
+  if (!verifyEmail(loginEmail.value)) {
+    loginError.innerHTML = 'Email syntax is Incorrect';
+    return;
+  }
+  if (!verifyPassword(loginPassword.value)) {
+    loginError.innerHTML = 'Password must contain alphabet or numbers';
+    return;
+  }
+  if (loginPassword.value.length < 6) {
+    loginError.innerHTML = 'Password must not be less than six characters';
+    return;
+  }
+  loginError.innerHTML = '';
+  fetch(`${url}/auth/login`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: loginEmail.value,
+      password: loginPassword.value,
+    }),
+  }).then(response => response.json()).then((data) => {
+    if (data.status === 200) {
+      window.location.replace('./userProfileSetUp.html');
+      return;
+    }
+    loginError.innerHTML = data.message;
+  });
+};
+
+
+loginSubmit.addEventListener('click', loginUser);
