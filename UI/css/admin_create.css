@@ -1,6 +1,5 @@
 /* dashboard */
 .dashboard{
-  display: block;
   width: 70%;
   margin: 0 auto;
   margin-left: 200px;
@@ -8,7 +7,7 @@
 .createEvent{
   width: 70%;
   margin: 0 auto;
-  padding-top: 25px;
+  padding-top: 95px;
 }
 .createEvent h5,label{
   font-size: 12px !important;
@@ -93,13 +92,19 @@ hr.light{
   .dashboard{
     width: 60%;
     margin: 0 auto;
-    margin-left: 150px;
+    margin-left: 170px;
+  }
+  .createEvent{
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 578px) {
   .dashboard{
-    display: none;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 @media (max-width: 320px) {

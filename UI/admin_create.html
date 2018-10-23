@@ -10,7 +10,7 @@
   <!-- stylesheet -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="./css/adminMaster.css">
-  <!-- <link rel="stylesheet" href="css/admin_create.css"> -->
+  <link rel="stylesheet" href="css/admin_create.css">
   <!-- script -->
   <script src="./javascript/jquery.js" charset="utf-8"></script>
 </head>
@@ -91,6 +91,98 @@
     </nav>
   </div>
 
+  <div class="dashboard">
+    <div class="createEvent">
+      <form class="form">
+        <div class="form-group">
+          <label for="title" class="form-inline"><h5>EVENT TITLE</h5> <span style="color: red">*</span></label>
+          <input type="text" name="title" class="form-control" placeholder="use a distinct name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="location" class="form-inline"><h5>EVENT LOCATION</h5> <span style="color: red">*</span></label>
+          <textarea name="location" id="location" cols="30" rows="2" class="form-control" required></textarea>
+        </div>
+
+        <div class="form-group form-inline">
+          <label for="start" class="form-inline"><h5>START</h5> <span style="color: red">*</span></label>
+          <input type="date" class="form-control" required>
+          <input type="time" class="form-control">
+        </div>
+        <div class="form-group form-inline">
+          <label for="end" class="form-inline"><h5>END</h5> <span style="color: red">*</span></label>
+          <input type="date" class="form-control" required>
+          <input type="time" class="form-control">
+
+        </div>
+        <hr class="light">
+
+        <div class="form-group">
+          <h5>CATEGORY</h5>
+          <label class="radio">Music
+            <input type="radio" name="category">
+            <span class="check"></span>
+          </label>
+          <label class="radio">Sport
+            <input type="radio" name="category">
+            <span class="check"></span>
+          </label>
+          <label class="radio">Arts
+            <input type="radio" name="category">
+            <span class="check"></span>
+          </label>
+          <label class="radio">Business
+            <input type="radio" name="category">
+            <span class="check"></span>
+          </label>
+          <label class="radio">Conference
+            <input type="radio" name="category">
+            <span class="check"></span>
+          </label>
+          <label class="radio">Festival
+            <input type="radio" name="category">
+            <span class="check"></span>
+          </label>
+          <label class="radio">Science & Technology
+            <input type="radio" name="category">
+            <span class="check"></span>
+          </label>
+          <label class="radio">Party
+            <input type="radio" name="category">
+            <span class="check"></span>
+          </label>
+        </div>
+        <hr class="light">
+
+        <div class="form-group">
+          <label for="image" class="form-inline"><h5>EVENT IMAGE</h5></label>
+          <p>We recommend using at least a 2160 x 1080px(2:1 ratio) image that's no larger than 10MB</p>
+          <input type="file" name="image" class="form-control-file">
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="form-inline"><h5>EVENT DESCRIPTION</h5> <span style="color: red">*</span></label>
+          <textarea name="description" id="description" cols="30" rows="4" class="form-control" required></textarea>
+        </div>
+        <hr class="light">
+
+        <div class="form-group">
+          <label for="organizer" class="form-inline"><h5>ORGANIZER NAME</h5></label>
+          <input type="text" name="organizer" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="organizer_description" class="form-inline"><h5>ORGANIZER DESCRIPTION</h5></label>
+          <textarea name="organizer_description" id="organizer_description" cols="30" rows="2" class="form-control"></textarea>
+        </div>
+
+        <div class="form-inline">
+          <input type="checkbox" id="confirm">
+          <label class="form-item">I've ensured my information are correct</p>
+        </div>
+        <button type="submit" class="btn btn-info col-12" id="disable" disabled>SAVE</button>
+      </form>
+    </div>
+  </div>
 
     <!-- end page div -->
     <div  style="height: 150px;"></div>
