@@ -13,7 +13,7 @@ class EventController {
     cloudinary.uploader.upload(image, (result) => {
       const query = `INSERT INTO event(title,location,startdate,enddate,starttime,endtime,category,image,description,
         organizer,organizerdescription,userID) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`;
-      const params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim(), result.secure_url, bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
+      const params = [bd.title.trim(), bd.location.trim(), bd.startdate.trim(), bd.enddate.trim(), bd.starttime.trim(), bd.endtime.trim(), bd.category.trim().toLowerCase(), result.secure_url, bd.description.trim(), bd.organizer.trim(), bd.organizerdescription.trim(), req.decoded.userid];
       db.query(query, params, (err) => {
         if (err) {
           return next(err);

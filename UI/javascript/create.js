@@ -42,7 +42,8 @@ const loadingOverlay = document.getElementById('loadingOverlay');
 const dialogoverlay = document.getElementById('dialogoverlay');
 const dialogbox = document.getElementById('dialogbox');
 const dialogbody = document.getElementById('dialogbody');
-const url = 'https://teamachievers.herokuapp.com/api/v1';
+// const url = 'https://teamachievers.herokuapp.com/api/v1';
+const url = 'http://localhost:3000/api/v1';
 const close = document.getElementById('closebutton');
 const imagefile = document.getElementById('imagefile');
 const imageError = document.getElementById('imageError');
@@ -187,6 +188,6 @@ close.addEventListener('click', () => {
   window.location.replace('./create.html')
 })
 
-const smlogout = document.addEventListener('sm_logout');
+const smlogout = document.getElementById('sm_logout');
 smlogout.addEventListener('click', logoutUser);
 submit.addEventListener('click', createEvent);
