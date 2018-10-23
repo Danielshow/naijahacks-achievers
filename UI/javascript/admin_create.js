@@ -149,6 +149,7 @@ close.addEventListener('click', () => {
 
 const logoutUser = ((e) => {
   e.preventDefault();
+  console.log("I am in");
   fetch(`${url}/auth/logout`, {
     method: 'GET',
     headers: {

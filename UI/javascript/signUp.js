@@ -249,6 +249,10 @@ const loginUser = (e) => {
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem('token', `${data.data.token}`);
       }
+      if (data.status === 200 && data.data.roles === 'admin') {
+        window.location.replace('./admin_create.html');
+        return;
+      }
       window.location.replace('./profile.html');
       return;
     }
