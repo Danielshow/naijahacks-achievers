@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>profile</title>
-  <link rel="icon" href="./images/icons/favIcon.png">
+  <title>Registered event</title>
+  <link rel="icon" href="./images/icons/favIcon.jpg">
   <!-- stylesheet -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="./css/master.css">
@@ -16,7 +16,15 @@
 </head>
 
 <body>
-
+  <div id = "loadingOverlay">
+    <div class="loadingText" id="loadingText">
+      Welcome to the world of Possibilities <br>
+      Cant wait to send your event to a wider audience !!!!! <br>
+      You are amost there!!!!!!!!!!
+       <br>
+      <img src="./images/gif/load (4).gif" alt="loading" id ="loading">
+    </div>
+  </div>
     <div id="mysidenav" class="sidenav">
       <nav class="bodyNav">
         <ul>
@@ -43,7 +51,7 @@
               <a href="./admin_view_event.html">View Event</a>
             </div>
           </li>
-          <li><a href="#"></a>Log out</li>
+          <li><a href="#" id="sm_logout"></a>Log out</li>
         </ul>
       </nav>
     </div>
@@ -91,7 +99,7 @@
               <a href="./admin_view_event.html">View Event</a>
             </div>
           </li>
-          <li>Log out</li>
+          <li id="logout">Log out</li>
         </ul>
       </nav>
     </div>
@@ -101,28 +109,14 @@
 
         <div class="myevent">
           <h2>My Event</h2>
-          <table class="table table-hover table-striped">
+          <table class="table table-hover table-striped" id="tableuser">
             <thead>
               <th>EVENT TITLE</th>
               <th>EVENT DESCRIPTION</th>
               <th>REGISTERED ATTENDANT</th>
             </thead>
-            <tbody>
-              <tr>
-                <td>CodeLagos community 2019</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut libero </td>
-                <td><a href="#" class="reg">view attendant</a></td>
-              </tr>
-              <tr>
-                <td>Amni International</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex provident, magnam, ipsum beatae.</td>
-                <td><a href="#" class="reg">view attendant</a></td>
-              </tr>
-              <tr>
-                <td>NaijaHacks 2018</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex provident, magnam, ipsum beatae saepeolor.</td>
-                <td><a href="#" class="reg">view attendant</a></td>
-              </tr>
+            <tbody id="tbody">
+
             </tbody>
           </table>
         </div>
@@ -136,19 +130,8 @@
                 <th>USERNAME</th>
                 <th>EMAIL</th>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Sadewole</td>
-                  <td>samueladewole15@gmail.com</td>
-                </tr>
-                <tr>
-                  <td>EventRock</td>
-                  <td>eventrock@teamachievers.tech</td>
-                </tr>
-                <tr>
-                  <td>DanielShow</td>
-                  <td>DanielShow2018@gmail.com</td>
-                </tr>
+              <tbody id="viewTable">
+
               </tbody>
             </table>
           </div>
@@ -167,7 +150,7 @@
 
   <!-- script -->
   <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
-  <script src="javascript/adminMaster.js" charset="utf-8"></script>
+  <script src="javascript/admin.js" charset="utf-8"></script>
   <script src="./javascript/admin_view_event.js" charset="utf-8"></script>
   <script>
     $("#navbarDropdown").on('click', () => {

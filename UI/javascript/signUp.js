@@ -112,7 +112,7 @@ window.addEventListener('load', () => {
       }
       if (data.status === 200 && data.data[0].roles === 'admin') {
         loadingOverlay.style.display = 'none';
-        window.location.replace('./admin.html');
+        window.location.replace('./admin_create.html');
         return;
       }
       loadingOverlay.style.display = 'none';
@@ -248,6 +248,10 @@ const loginUser = (e) => {
     if (data.status === 200) {
       if (typeof (Storage) !== 'undefined') {
         localStorage.setItem('token', `${data.data.token}`);
+      }
+      if (data.status === 200 && data.data.roles === 'admin') {
+        window.location.replace('./admin_create.html');
+        return;
       }
       window.location.replace('./profile.html');
       return;

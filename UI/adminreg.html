@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>profile</title>
-  <link rel="icon" href="./images/icons/favIcon.png">
+  <title>Registered users</title>
+  <link rel="icon" href="./images/icons/favIcon.jpg">
   <!-- stylesheet -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="./css/master.css">
@@ -16,7 +16,23 @@
 </head>
 
 <body>
-
+  <div id = "loadingOverlay">
+    <div class="loadingText" id="loadingText">
+      Welcome to the world of Possibilities <br>
+      Cant wait to send your event to a wider audience !!!!! <br>
+      You are amost there!!!!!!!!!!
+       <br>
+      <img src="./images/gif/load (4).gif" alt="loading" id ="loading">
+    </div>
+  </div>
+  <div id="dialogoverlay"></div>
+  <div id="dialogbox">
+    <div>
+      <div id="dialoghead"> Success </div>
+      <div id="dialogbody"></div>
+      <div id="dialogfooter"><button id="closebutton" class = 'btn btn-success'>OK</button></div>
+    </div>
+  </div>
     <div id="mysidenav" class="sidenav">
       <nav class="bodyNav">
         <ul>
@@ -43,7 +59,7 @@
               <a href="./admin_view_event.html">View Event</a>
             </div>
           </li>
-          <li><a href="#"></a>Log out</li>
+          <li><a href="#" id="sm_logout"></a>Log out</li>
         </ul>
       </nav>
     </div>
@@ -91,7 +107,7 @@
               <a href="./admin_view_event.html">View Event</a>
             </div>
           </li>
-          <li>Log out</li>
+          <li id="logout">Log out</li>
         </ul>
       </nav>
     </div>
@@ -101,42 +117,20 @@
 
     <div class="dashboard">
       <h2>Users</h2>
-      <table class="table">
-        <thead>
-          <!-- <th>Users</th> -->
-        </thead>
-        <tbody>
-          <tr>
-            <td>samueladewole15@gmail.com</td>
-            <td>Promote</td>
-            <td>Delete</td>
-          </tr>
-          <tr>
-            <td>DanielShow2018@gmail.com</td>
-            <td>Promote</td>
-            <td>Delete</td>
-          </tr>
-          <tr>
-            <td>eventrock@gmail.com</td>
-            <td>Promote</td>
-            <td>Delete</td>
-          </tr>
-        </tbody>
+      <table class="table" id="usertable">
+
       </table>
     </div>
     <!-- end page div -->
     <div style="height: 150px;"></div>
   </div>
 
-
-
-
-
-
-
   <!-- script -->
   <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
   <script src="javascript/master.js" charset="utf-8"></script>
+  <script src ="javascript/adminreg.js">
+
+  </script>
   <script>
     $("#navbarDropdown").on('click', () => {
       $("#dropAcc").toggle()
