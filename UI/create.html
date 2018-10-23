@@ -28,8 +28,7 @@
   <div id="dialogbox">
     <div>
       <div id="dialoghead"> Success </div>
-      <div id="dialogbody">Holla!!!! Event Created <br>
-      Talk about us on social media !!!</div>
+      <div id="dialogbody"></div>
       <div id="dialogfooter"><button id="closebutton" class = 'btn btn-success'>OK</button></div>
     </div>
   </div>
@@ -95,7 +94,7 @@
     <!-- create events -->
     <div class="container-fluid">
       <div class="createEvent">
-        <form class="form" id="createEvent">
+        <form class="form" id="createEvent" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="title" class="form-inline"><h5>EVENT TITLE</h5> <span style="color: red">*</span></label>
             <input type="text" name="title" class="form-control" id="title" placeholder="use a distinct name" required>
@@ -158,8 +157,12 @@
 
           <div class="form-group">
             <label for="image" class="form-inline"><h5>EVENT IMAGE</h5></label>
-            <p>We recommend using at least a 2160 x 1080px(2:1 ratio) image that's no larger than 10MB</p>
-            <input type="file" name="image" class="form-control-file">
+            <p>We recommend using at least an image that's no larger than 10MB</p>
+            <p>If an image is not uploaded, a default image will be used </p>
+            <input type="file" name="image" class="form-control-file" id="imagefile">
+            <div class="imageerror" id="imageError">
+
+            </div>
           </div>
 
           <div class="form-group">

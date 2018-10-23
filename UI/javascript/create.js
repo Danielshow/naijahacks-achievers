@@ -44,6 +44,8 @@ const dialogbox = document.getElementById('dialogbox');
 const dialogbody = document.getElementById('dialogbody');
 const url = 'http://localhost:3000/api/v1';
 const close = document.getElementById('closebutton');
+const imagefile = document.getElementById('imagefile');
+const imageError = document.getElementById('imageError');
 
 let token = '';
 
@@ -77,7 +79,17 @@ window.addEventListener('load', () => {
   }
 });
 
+imagefile.addEventListener('change', () => {
+  imageError.innerText = '';
+  if (imagefile.files[0].size > 2000000) {
+    imageError.innerText = 'Image must not be greater than 2mb';
+    imagefile.value = ''
+    return;
+  }
+})
+
 const createEvent = (e) => {
+  console.log(imagefile.files);
   e.preventDefault();
   let valid = true;
   if (title.value.trim().length < 1) {

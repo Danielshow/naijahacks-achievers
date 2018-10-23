@@ -26,6 +26,9 @@ body{
   border-radius: 50%;
 }
 
+.imageerror {
+  color: red;
+}
 .loadingText {
   width: 70%;
   align-self: center;
