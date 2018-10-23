@@ -15,16 +15,3 @@ if(!(document.body.style.width > 992 || document.documentElement.style.width > 9
     document.getElementById('closeMenu').style.display = "none";
   }
 }
-
-
-// confirmation button
-let confirm = document.getElementById('confirm');
-let disable = document.getElementById('disable').disabled=true;
-
-confirm.addEventListener('click', ()=> {
-  if(confirm.checked){
-    document.getElementById('disable').disabled=false;
-  }else{
-    document.getElementById('disable').disabled=true;
-  }
-});

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>HomePage</title>
+  <link rel="icon" href="./images/icons/favIcon.png">
   <!-- style -->
   <link rel="stylesheet" href="./css/bootstrap.css">
   <link rel="stylesheet" href="./css/style.css">
@@ -16,22 +17,22 @@
     <div id="mysidenav" class="sidenav">
       <ul>
         <li>
-          <a href="#">Home </a>
+          <a href="index.html">Home </a>
         </li>
         <li>
-          <a href="#">About</a>
+          <a href="index.html#footer">About</a>
         </li>
         <li>
-          <a href="#">Create Event</a>
+          <a href="./create.html">Create Event</a>
         </li>
         <li>
           <a class="dropdown-toggle" href="#" id="navbarDropdown">
     Account
   </a>
           <div class="dropAccount" id="dropAcc">
-            <a href="./login.htm">sign in</a>
+            <a href="signup.html">sign in</a>
             <div class="dropdown-divider"></div>
-            <a href="./login.htm">Register</a>
+            <a href="signup.html">Register</a>
           </div>
         </li>
       </ul>
@@ -56,22 +57,22 @@
         <div class="remove collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#footer">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Create Event</a>
+              <a class="nav-link" href="create.html">Create Event</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Account
                 </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">sign in</a>
+                <a class="dropdown-item" href="./signup.html">sign in</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Register</a>
+                <a class="dropdown-item" href="./signup.html">Register</a>
               </div>
             </li>
           </ul>
@@ -88,8 +89,11 @@
 
         <div class="jumb-card">
           <div class="jumbotron text-center ">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis impedit, amet repellendus tenetur id ratione fugit, vitae esse vero inventore quos aperiam doloribus itaque. Minus.</p>
-            <button type="button" class="btn btn-secondary" name="button">READ MORE</button>
+            <p>Why <br> posting and hanging banners to flood streets when you can fload <br><cite style="color: #f8f9fa; text-shadow: 0px 2px 2px #17a2b8; font-size: 35px; font-family: 'Monotype Corsiva';">EventRock</cite><br> with numerous event for free.</p>
+            <!-- <p>Why worrying about price to create an event when <cite>EventRock</cite> has made life easy.</p> -->
+            <a href="./signUp.html">
+              <button type="button" class="btn" name="button">Sign Up Now</button>
+            </a>
           </div>
 
         </div>
@@ -98,7 +102,7 @@
 
       <!-- section -->
         <div class="events-guild">
-          <div class="row col-12 text-center">
+          <div class="row text-center no-gutters">
             <div class="col-lg-4 col-xl-4 col-md-4  col-sm-4">
               <a href="#mind"><img src="./images/mind.png" alt="frame of mind" class="img-fluid mind-bg"></a>
               <p style="color: #dc3545">Frame of mind</p>
@@ -138,50 +142,64 @@
         <!-- catalog -->
         <div class="catalog text-center" id="catalog">
           <h2>Seeking for varieties..</h2>
-          <div class="row col-12">
+          <div class="row no-gutters col-12">
             <div class="col-lg-7 col-md-12 ">
-              <video autoplay loop>
-                <source src="./gif/jumb-md.mp4" type="video/mp4">
-              </video>
+              <img src="./images/bg/catalog.jpg" alt="catalogBg" class="img">
             </div>
             <div class="col-lg-5 col-md-12" id="slido">
-              <div class="card slido1">
-                <h4 class="card-title">MUSIC</h4>
-              </div>
-              <div class="card slido2">
-                <h4 class="card-title">ARTS</h4>
-              </div>
-              <div class="card slido3">
-                <h4 class="card-title">BUSINESS</h4>
-              </div>
-              <div class="card slido4">
-                <h4 class="card-title">SPORTS</h4>
-              </div>
-              <div class="card slido5">
-                <h4 class="card-title">PARTY</h4>
-              </div>
-              <div class="card slido6">
-                <h4 class="card-title">FESTIVAL</h4>
-              </div>
-              <div class="card slido7">
-                <h4 class="card-title">SCIENCE & TECHNOLOGY</h4>
-              </div>
-              <div class="card slido8">
-                <h4 class="card-title">CONFERENCE</h4>
-              </div>
+              <a href="./browseEvent.html#music">
+                <div class="card slido1">
+                  <h4 class="card-title">MUSIC</h4>
+                </div>
+              </a>
+              <a href="./browse.html#arts">
+                <div class="card slido2">
+                  <h4 class="card-title">ARTS</h4>
+                </div>
+              </a>
+              <a href="./browse.html#business">
+                <div class="card slido3">
+                  <h4 class="card-title">BUSINESS</h4>
+                </div>
+              </a>
+              <a href="./browse.html#sport">
+                <div class="card slido4">
+                  <h4 class="card-title">SPORTS</h4>
+                </div>
+              </a>
+              <a href="./browse.html#party">
+                <div class="card slido5">
+                  <h4 class="card-title">PARTY</h4>
+                </div>
+              </a>
+              <a href="./browse.html#festival">
+                <div class="card slido6">
+                  <h4 class="card-title">FESTIVAL</h4>
+                </div>
+              </a>
+              <a href="./browse.html#sciTech">
+                <div class="card slido7">
+                  <h4 class="card-title">SCIENCE & TECHNOLOGY</h4>
+                </div>
+              </a>
+              <a href="./browse.html#conference">
+                <div class="card slido8">
+                  <h4 class="card-title">CONFERENCE</h4>
+                </div>
+              </a>
             </div>
           </div>
         </div>
       <!-- card -->
       <div class=" padding text-center testy" id="mind">
         <h1>Testimonies..</h1>
-        <div class="row col-12 ">
+        <div class="row col-12 no-gutters">
           <div class="col-lg-4 col-md-6 col-sm-12 mb-3 img1">
             <div class="card">
               <img src="images/avatar/testy (1).png" class="card-img-top image-fluid">
               <div class="card-body">
-                <h4 class="card-title">John Doe</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas veritatis nemo sed magnam mollitia consequatur.</p>
+                <h4 class="card-title">Christiana Hale</h4>
+                <p class="card-text">Thumbs up @EventRock. Exploring latest event has been so much fun. I don't think i've missed any update on catch up </p>
               </div>
             </div>
           </div>
@@ -190,7 +208,7 @@
               <img src="images/avatar/testy (2).png" class="card-img-top image-fluid">
               <div class="card-body">
                 <h4 class="card-title">Charles Feem</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas veritatis nemo sed magnam mollitia consequatur.</p>
+                <p class="card-text">EventRock is awesome. I can create event without having to worry about price. Viewing list of expected attendance has been a great relieve </p>
               </div>
             </div>
           </div>
@@ -199,7 +217,7 @@
               <img src="images/avatar/testy (3).png" class="card-img-top image-fluid">
               <div class="card-body">
                 <h4 class="card-title">Mike Kale</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas veritatis nemo sed magnam mollitia consequatur.</p>
+                <p class="card-text">Since i've started using EventRock, i realised i've not seen any reason to do without it. Creating event, reaching out to my attendance has been made easy. Thank you EventRock.</p>
               </div>
             </div>
           </div>
@@ -207,52 +225,35 @@
       </div>
 
 
-      <!-- subscribe -->
-      <div class="container padding subscribe">
-        <h3>For our newsletter</h3>
-        <form class="form-inline">
-          <div class="form-group">
-            <!-- <label class="form-item">Email: .</label> -->
-            <input type="email" class="form-control my-2 my-sm-0" placeholder="enter your email">
-            <button class="btn btn-danger ">
-              Subscribe
-            </button>
-          </div>
-
-        </form>
-      </div>
-
-
       <!-- footer -->
-      <div class=" text-center footer">
-        <div class="row col-12">
+      <div class=" text-center footer" id="footer">
+        <div class="row no-gutters col-12">
           <div class="col-md-4">
             <hr class="light">
             <h2>EventRock</h2>
-            <hr class="light">
-            <p>555-555-5555</p>
-            <p>Email@eventrock.com</p>
-            <p>100 street name</p>
-            <p>city, state, 0000</p>
-          </div>
-          <div class="col-md-4">
-            <hr class="light">
-            <h2>Contact</h2>
-            <hr class="light">
-            <p>555-555-5555</p>
-            <p>Email@pressgurd.com</p>
-            <p>100 street name</p>
-            <p>city, state, 0000</p>
-          </div>
+          <hr class="light">
+          <p>09078563229, 08096822832</p>
+          <p>eventrock@teamachievers.tech</p>
+          <p>Lagos Island</p>
+          <p>Lagos</p>
+        </div>
+        <div class="col-md-4">
+          <hr class="light">
+          <h2>Links</h2>
+          <hr class="light">
+          <p><a href="./index.html">Home</a></p>
+          <p><a href="./create.html">Create Event</a></p>
+          <p><a href="./signup.html">Account</a></p>
+        </div>
           <div class="col-md-4 icon">
             <hr class="light">
             <h2>Follow us</h2>
             <hr class="light">
-            <a href="#"><img src="images/icons/facebook.png" alt="facebook" class="image-fluid"></a>
-            <a href="#"><img src="images/icons/twitter.png" alt="twitter" class="image-fluid"></a>
-            <a href="#"><img src="images/icons/google-plus.png" alt="google-plus" class="image-fluid"></a>
-            <a href="#"><img src="images/icons/instagram.png" alt="instagram" class="image-fluid"></a>
-            <a href="#"><img src="images/icons/linkedin.png" alt="linkedin" class="image-fluid"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/icons/facebook.png" alt="facebook" class="image-fluid"></a>
+            <a href="https://www.twitter.com/" target="_blank"><img src="images/icons/twitter.png" alt="twitter" class="image-fluid"></a>
+            <a href="https://plus.google.com" target="_blank"><img src="images/icons/google-plus.png" alt="google-plus" class="image-fluid"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/icons/instagram.png" alt="instagram" class="image-fluid"></a>
+            <a href="https://www.linkedin.com" target="_blank"><img src="images/icons/linkedin.png" alt="linkedin" class="image-fluid"></a>
           </div>
         </div>
         <br>

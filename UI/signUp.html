@@ -5,26 +5,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>SignUo</title>
+  <title>SignUp</title>
+  <link rel="icon" href="./images/icons/favIcon.png">
   <!-- style -->
-  <link rel="stylesheet" href="./css/signUp.css">
+  <link rel="stylesheet" href="./css/signup.css">
   <link rel="stylesheet" href="./css/bootstrap.css">
   <!-- script -->
   <script src="./javascript/jquery.js" charset="utf-8"></script>
 </head>
 
 <body>
-
+  <div id = "loadingOverlay">
+    <div class="loadingText" id="loadingText">
+      Welcome to the world of Possibilities <br>
+      Just a matter of time for you to start creating Events !!!!!
+       <br>
+      <img src="./images/gif/load (4).gif" alt="loading" id ="loading">
+    </div>
+  </div>
+  <div id="dialogoverlay"></div>
+  <div id="dialogbox">
+    <div>
+      <div id="dialoghead"> Success </div>
+      <div id="dialogbody"> Registration Succesful <br>
+      Proceed to Login</div>
+      <div id="dialogfooter"><button id="closebutton" class = 'btn btn-success'>OK</button></div>
+    </div>
+  </div>
   <div id="mysidenav" class="sidenav">
     <ul>
       <li>
         <a href="./index.html">Home </a>
       </li>
       <li>
-        <a href="#">About</a>
+        <a href="./index.html#footer">About</a>
       </li>
       <li>
-        <a href="#">Create Event</a>
+        <a href="./create.html">Create Event</a>
       </li>
     </ul>
 
@@ -43,32 +60,33 @@
           </button>
       <!-- closeNav button -->
       <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
-
-
       <div class="remove collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#footer">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Create Event</a>
+            <a class="nav-link" href="./create.html">Create Event</a>
           </li>
         </ul>
       </div>
     </nav>
 
 
-    <form class="form-inline offset-6 mt-1 mr-2">
+    <form class="form-inline offset-6 mt-1 mr-2" id="formsignin">
       <div class="form-group">
-        <input type="text" placeholder="Username..." class="form-control mr-1">
+        <input type="text" placeholder="Email..." class="form-control mr-1" id="loginemail" required>
       </div>
       <div class="form-group">
-        <input type="password" placeholder="Password..." class="form-control mr-1">
+        <input type="password" placeholder="Password..." class="form-control mr-2" id="loginpassword" required>
       </div>
-      <button type="button" name="button" class="btn btn-danger btn-breakpoint-sm">Login</button>
+      <div class="form-group">
+          <button type="submit" name="button" class="btn btn-danger btn-breakpoint-sm" id="loginsubmit">Login</button>
+      </div>
+      <div class="loginerror" id="loginerror"></div>
     </form>
 
     <hr class="light">
@@ -76,27 +94,24 @@
 
 
     <!-- Register form -->
-    <form id="regForm" action="">
+    <form id="regForm" action="" method="post">
       <h1>Register</h1>
       <!-- One "tab" for each step in the form: -->
       <div class="tab">Name:
-        <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
-        <p><input placeholder="Middle name..." oninput="this.className = ''" name="mname"></p>
-        <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+        <p><input placeholder="First name..." oninput="this.className = ''" name="fname" id="firstname"></p>
+        <p><input placeholder="Last name..." oninput="this.className = ''" name="lname" id= "lastname"></p>
+        <div class="nameerror" id = 'nameerror'></div>
       </div>
       <div class="tab">Contact Info:
-        <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
-        <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
-      </div>
-      <div class="tab">Birthday:
-        <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
-        <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
-        <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+        <p><input placeholder="E-mail..." oninput="this.className = ''" name="email" id="email"></p>
+        <p><input placeholder="Phone..." oninput="this.className = ''" name="phone" id="phone"></p>
+        <div class="contacterror" id="contacterror"></div>
       </div>
       <div class="tab">Login Info:
-        <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-        <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-        <p><input type="password" placeholder="Confirm password..." oninput="this.className = ''" name="Cpword" ></p>
+        <p><input placeholder="Username..." oninput="this.className = ''" name="uname" id="username"></p>
+        <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password" id="password"></p>
+        <p><input type="password" placeholder="Confirm password..." oninput="this.className = ''" name="Cpword" id="cpassword"></p>
+        <div class="infoerror" id="infoerror"></div>
       </div>
       <div style="overflow:auto;">
         <div style="float:right;">
@@ -109,7 +124,6 @@
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
-        <span class="step"></span>
       </div>
     </form>
 
@@ -117,35 +131,34 @@
 
 
     <!-- footer -->
-    <div class="container-fluid text-center footer bg-dark">
-      <div class="row col-12">
+    <div class=" text-center footer" id="footer">
+      <div class="row no-gutters col-12">
         <div class="col-md-4">
           <hr class="light">
           <h2>EventRock</h2>
           <hr class="light">
-          <p>555-555-5555</p>
-          <p>Email@eventrock.com</p>
-          <p>100 street name</p>
-          <p>city, state, 0000</p>
+          <p>09078563229, 08096822832</p>
+          <p>eventrock@teamachievers.tech</p>
+          <p>Lagos Island</p>
+          <p>Lagos</p>
         </div>
         <div class="col-md-4">
           <hr class="light">
-          <h2>Contact</h2>
+          <h2>Links</h2>
           <hr class="light">
-          <p>555-555-5555</p>
-          <p>Email@pressgurd.com</p>
-          <p>100 street name</p>
-          <p>city, state, 0000</p>
+          <p><a href="./index.html">Home</a></p>
+          <p><a href="./create.html">Create Event</a></p>
+          <p><a href="./signup.html">Account</a></p>
         </div>
         <div class="col-md-4 icon">
           <hr class="light">
           <h2>Follow us</h2>
           <hr class="light">
-          <a href="#"><img src="images/icons/facebook.png" alt="facebook" class="image-fluid"></a>
-          <a href="#"><img src="images/icons/twitter.png" alt="twitter" class="image-fluid"></a>
-          <a href="#"><img src="images/icons/google-plus.png" alt="google-plus" class="image-fluid"></a>
-          <a href="#"><img src="images/icons/instagram.png" alt="instagram" class="image-fluid"></a>
-          <a href="#"><img src="images/icons/linkedin.png" alt="linkedin" class="image-fluid"></a>
+          <a href="https://www.facebook.com/" target="_blank"><img src="images/icons/facebook.png" alt="facebook" class="image-fluid"></a>
+          <a href="https://www.twitter.com/" target="_blank"><img src="images/icons/twitter.png" alt="twitter" class="image-fluid"></a>
+          <a href="https://plus.google.com" target="_blank"><img src="images/icons/google-plus.png" alt="google-plus" class="image-fluid"></a>
+          <a href="https://www.instagram.com/" target="_blank"><img src="images/icons/instagram.png" alt="instagram" class="image-fluid"></a>
+          <a href="https://www.linkedin.com" target="_blank"><img src="images/icons/linkedin.png" alt="linkedin" class="image-fluid"></a>
         </div>
       </div>
       <br>
@@ -159,7 +172,7 @@
 
   <!-- script -->
   <script src="./javascript/bootstrap.min.js" charset="utf-8"></script>
-  <script src="./javascript/signUp.js" charset="utf-8"></script>
+  <script src="./javascript/signup.js" charset="utf-8"></script>
   <script>
     $("#navbarDropdown").on('click', () => {
       $("#dropAcc").toggle()

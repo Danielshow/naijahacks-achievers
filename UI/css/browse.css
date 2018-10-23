@@ -5,17 +5,7 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
-.flx{
-  display: flex;
-  flex-direction: column;
-}
-.flx3{
-  flex-shrink: 0;
-}
-.flx1{
-  flex-grow: 1;
-}
-/* sidenav push example */
+
 
 .sidenav {
   display: none;
@@ -136,6 +126,9 @@ select:focus, option{
 .catalog .card{
   margin: 5px;
   padding: 0 !important;
+}
+.catalog:empty{
+
 }
 .img{
   width: 100%;
@@ -287,7 +280,14 @@ select:focus, option{
   margin-top: .8rem;
   margin-bottom: 1rem;
 }
-
+.footer a{
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.footer a:hover{
+  opacity: 0.8;
+}
 .icon a img {
   width: 25px;
   height: 25px;
