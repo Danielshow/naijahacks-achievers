@@ -17,78 +17,84 @@
 
 <body>
 
-  <div id="mysidenav" class="sidenav">
-    <nav class="bodyNav">
-      <ul>
-        <li>
-          <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
-          <span>Profile</span>
-        </li>
-        <li>
-          <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
-          <span>Users</span>
-        </li>
-        <li>
-          <a class="dropdown-toggle" href="#" id="eventDropdown">
-            <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
-      Event
-    </a>
-          <div class="dropAccount" id="eventdrop">
-            <a href="./browse.html">Browse Event</a>
-            <div class="dropdown-divider"></div>
-            <a href="./admin_create.html">Create Event</a>
-            <div class="dropdown-divider"></div>
-            <a href="./admin_view_event.html">View Event</a>
-          </div>
-        </li>
-        <li>Log out</li>
-      </ul>
-    </nav>
-  </div>
+    <div id="mysidenav" class="sidenav">
+      <nav class="bodyNav">
+        <ul>
+          <li><a href="./admin_page.html">
+            <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
+            <span>Profile</span>
+          </a>
+          </li>
+          <li><a href="./adminreg.html">
+            <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+            <span>Users</span>
+          </a>
+          </li>
+          <li>
+            <a class="dropdown-toggle" href="#" id="eventDropdown">
+              <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
+        Event
+      </a>
+            <div class="dropAccount" id="eventdrop">
+              <a href="./browse.html">Browse Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./admin_create.html">Create Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./admin_view_event.html">View Event</a>
+            </div>
+          </li>
+          <li><a href="#"></a>Log out</li>
+        </ul>
+      </nav>
+    </div>
 
-  <!-- Main area of the web page -->
+    <!-- Main area of the web page -->
 
-  <!-- navbar -->
-  <div class="container-fluid" id="main">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark hs">
+    <!-- navbar -->
+    <div class="container-fluid" id="main">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark hs">
 
-      <a class="navbar-brand" href="./index.html">EventRock</a>
-      <!-- openNav button -->
-      <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      <!-- closeNav button -->
-      <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
+        <a class="navbar-brand" href="./index.html">EventRock</a>
+        <!-- openNav button -->
+        <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <!-- closeNav button -->
+        <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
 
-    </nav>
+      </nav>
 
-    <div class="mainWrapper">
-    <nav class="bodyNav">
-      <ul>
-        <li>
-          <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
-          <span>Profile</span>
-        </li>
-        <li>
-          <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
-          <span>Users</span>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="dropdown-toggle" href="#" id="eventDropdown2">
-            <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
-      Event
-    </a>
-          <div class="dropAccount" id="eventdrop2">
-            <a href="./browse.html">Browse Event</a>
-            <div class="dropdown-divider"></div>
-            <a href="./admin_create.html">Create Event</a>
-            <div class="dropdown-divider"></div>
-            <a href="./admin_view_event.html">View Event</a>
-          </div>
-        </li>
-        <li>Log out</li>
-      </ul>
-    </nav>
+      <div class="mainWrapper">
+      <nav class="bodyNav">
+        <ul>
+          <li><a href="./admin_page.html">
+            <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
+            <span>Profile</span>
+          </a>
+          </li>
+          <li>
+            <a href="./adminreg.html">
+              <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+              <span>Users</span>
+          </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="dropdown-toggle" href="#" id="eventDropdown2">
+              <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
+        Event
+      </a>
+            <div class="dropAccount" id="eventdrop2">
+              <a href="./browse.html">Browse Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./admin_create.html">Create Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./admin_view_event.html">View Event</a>
+            </div>
+          </li>
+          <li>Log out</li>
+        </ul>
+      </nav>
+    </div>
   </div>
 
   <div class="dashboard">
