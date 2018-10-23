@@ -9,7 +9,7 @@
   <link rel="icon" href="./images/icons/favIcon.png">
   <!-- stylesheet -->
   <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/viewRegister.css">
+  <link rel="stylesheet" href="css/register.css">
   <!-- script -->
   <script src="./javascript/jquery.js" charset="utf-8"></script>
 </head>
@@ -19,7 +19,7 @@
   <div id="mysidenav" class="sidenav">
     <ul>
       <li>
-        <a href="./userProfileSetup.html"><img src="./images/avatar/users.png" alt="user picture" class="image-fluid userPix"> </a>
+        <a href="./profile.html"><img src="./images/avatar/users.png" alt="user picture" class="image-fluid userPix"> </a>
         <p>[username]</p>
       </li>
       <li>
@@ -27,9 +27,9 @@
     Event
   </a>
         <div class="dropAccount" id="eventdrop">
-          <a href="./browseEvent.html">Browse Event</a>
+          <a href="./browse.html">Browse Event</a>
           <div class="dropdown-divider"></div>
-          <a href="./createEvent.html">Create Event</a>
+          <a href="./create.html">Create Event</a>
         </div>
       </li>
       <li>
@@ -58,16 +58,16 @@
         <ul class="navbar-nav ml-auto">
           <p>[username]</p>
           <li class="nav-item active">
-            <a href="./userProfileSetup.html"><img src="./images/avatar/users.png" alt="user picture" class="image-fluid userPix"> </a>
+            <a href="./profile.html"><img src="./images/avatar/users.png" alt="user picture" class="image-fluid userPix"> </a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Event
                 </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="./browseEvent.html">Browse Event</a>
+              <a class="dropdown-item" href="./browse.html">Browse Event</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="./createEvent.html">Create Event</a>
+              <a class="dropdown-item" href="./create.html">Create Event</a>
             </div>
           </li>
           <li class="nav-item ">
@@ -140,7 +140,7 @@
 
   <!-- script -->
   <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
-  <script src="javascript/viewRegister.js" charset="utf-8"></script>
+  <script src="javascript/register.js" charset="utf-8"></script>
   <script>
     $("#navbarDropdown").on('click', () => {
       $("#dropAcc").toggle()

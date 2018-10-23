@@ -38,7 +38,7 @@ class EventController {
           message: 'Event created successfully',
         });
       });
-    })
+    });
   }
 
   getAllEvent(req, res, next) {
@@ -118,7 +118,7 @@ class EventController {
           message: 'Event updated successfully',
         });
       });
-    })
+    });
   }
 
   getAllEventUser(req, res, next) {
