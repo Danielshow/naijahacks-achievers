@@ -47,7 +47,7 @@ const close = document.getElementById('closebutton');
 const imagefile = document.getElementById('imagefile');
 const imageError = document.getElementById('imageError');
 const logout = document.getElementById('logout');
-
+const username = document.getElementById('username');
 let token = '';
 
 window.addEventListener('load', () => {
@@ -69,6 +69,7 @@ window.addEventListener('load', () => {
         window.location.replace('./admin_create.html');
         return;
       }
+      username.innerHTML = data.data[0].username;
       loadingOverlay.style.display = 'none';
     }).catch((err) => {
       loadingOverlay.style.display = 'none';
@@ -179,6 +180,7 @@ const logoutUser = ((e) => {
     window.location.replace('./signup.html')
   });
 });
+
 logout.addEventListener('click', logoutUser)
 close.addEventListener('click', () => {
   dialogbox.style.display = 'none';

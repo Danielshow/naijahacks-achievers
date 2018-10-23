@@ -23,8 +23,8 @@ body{
 #loading {
   z-index: 1;
   border-radius: 50%;
-  width: 200px;
-  height: 150px;
+  width: 50px;
+  height: 50px;
 }
 
 .imageerror {
