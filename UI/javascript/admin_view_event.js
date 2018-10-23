@@ -103,3 +103,24 @@ const fetchData = (idl) => {
     }
   });
 };
+
+const logout = document.getElementById('logout');
+const logoutUser = ((e) => {
+  e.preventDefault();
+  fetch(`${url}/auth/logout`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(response => response.json()).then((data) => {
+    if (data.status === 200) {
+      if (typeof (Storage) !== 'undefined') {
+        localStorage.setItem('token', `${data.data.token}`);
+      }
+      window.location.replace('./signup.html');
+    }
+  }).catch((err) => {
+    window.location.replace('./signup.html')
+  });
+});
+logout.addEventListener('click', logoutUser)
