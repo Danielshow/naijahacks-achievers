@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>profile</title>
+  <link rel="icon" href="./images/icons/favIcon.png">
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <!-- script -->
+  <script src="./javascript/jquery.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+  <div id="mysidenav" class="sidenav">
+    <ul>
+      <li>
+        <a href="./userProfileSetup.html"><img src="./images/avatar/users.png" alt="user picture" class="image-fluid userPix"> </a>
+        <p>[username]</p>
+      </li>
+      <li>
+        <a href="#">Dashboard</a></li>
+      <li>
+        <a class="dropdown-toggle" href="#" id="eventDropdown">
+    Event
+  </a>
+        <div class="dropAccount" id="eventdrop">
+          <a href="./browseEvent.html">Browse Event</a>
+          <div class="dropdown-divider"></div>
+          <a href="./createEvent.html">Create Event</a>
+          <div class="dropdown-divider"></div>
+          <a href="./viewRegister.html">View Event</a>
+        </div>
+      </li>
+      <li>
+        <a href="./index.html">Log out</a>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- Main area of the web page -->
+
+  <!-- navbar -->
+  <div class="container-fluid" id="main">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <a class="navbar-brand" href="./index.html">EventRock</a>
+      <!-- openNav button -->
+      <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <!-- closeNav button -->
+      <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
+
+
+      <div class="remove collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <p>[username]</p>
+          <li class="nav-item active">
+            <a href="./userProfileSetup.html"><img src="./images/avatar/users.png" alt="user picture" class="image-fluid userPix"> </a>
+          </li>
+          <li class="nav-item">
+            <a ass="nav-item ">
+              <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Event
+                </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="./browseEvent.html">Browse Event</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./createEvent.html">Create Event</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./viewRegister.html">View Event</a>
+            </div>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./index.html">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="mainWrapper">
+    <nav class="bodyNav">
+      <ul>
+        <li>
+          <span><img width='30px' height="30px" src="./images/tag.png" alt="tag"></span>
+          <span>Tags</span>
+        </li>
+        <li class="active">
+          <span><img width='30px' height="30px" src="./images/analytic.png" alt="analytic"></span>
+          <span>Analytics</span>
+        </li>
+        <li>
+          <span><img width='30px' height="30px" src="./images/users.png" alt="user"></span>
+          <span>Users</span>
+        </li>
+        <li>
+          <span><img width='30px' height="30px" src="./images/calendar.png" alt="calendar"></span>
+          <span>Calendar</span>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="dashboard">
+    <h2>Users</h2>
+    <table class="table">
+      <thead>
+        <!-- <th>Users</th> -->
+      </thead>
+      <tbody>
+        <tr>
+          <td>samueladewole15@gmail.com</td>
+          <td>Promote</td>
+          <td>Delete</td>
+        </tr>
+        <tr>
+          <td>DanielShow2018@gmail.com</td>
+          <td>Promote</td>
+          <td>Delete</td>
+        </tr>
+        <tr>
+          <td>eventrock@gmail.com</td>
+          <td>Promote</td>
+          <td>Delete</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+    <!-- end page div -->
+    <div  style="height: 150px;"></div>
+  </div>
+
+
+
+
+
+
+
+  <!-- script -->
+  <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
+  <script src="javascript/admin.js" charset="utf-8"></script>
+  <script>
+    $("#navbarDropdown").on('click', () => {
+      $("#dropAcc").toggle()
+    })
+    $("#eventDropdown").on('click', () => {
+      $("#eventdrop").toggle()
+    })
+  </script>
+</body>
+
+</html>
