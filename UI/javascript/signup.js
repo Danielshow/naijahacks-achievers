@@ -58,7 +58,7 @@ function nextPrev(n) {
 }
 
 // Link with backend API code
-const url = 'http://localhost:3000/api/v1';
+const url = 'https://teamachievers.herokuapp.com/api/v1';
 
 const verifyEmail = (email) => {
   const re = /\S+@\S+\.\S+/;
