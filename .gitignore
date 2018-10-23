@@ -1,10 +1,9 @@
 logs
 *.log
 npm-debug.log*
-# nyc test coverage
+build
 .nyc_output
 build
-# Dependency directories
 node_modules/
 .npm
 .eslintcache

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>profile</title>
+  <link rel="icon" href="./images/icons/favIcon.png">
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="./css/master.css">
+  <link rel="stylesheet" href="css/admin_page.css">
+  <!-- script -->
+  <script src="./javascript/jquery.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+  <div id="mysidenav" class="sidenav">
+    <nav class="bodyNav">
+      <ul>
+        <li>
+          <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
+          <span>Profile</span>
+        </li>
+        <li>
+          <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+          <span>Users</span>
+        </li>
+        <li>
+          <a class="dropdown-toggle" href="#" id="eventDropdown">
+            <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
+      Event
+    </a>
+          <div class="dropAccount" id="eventdrop">
+            <a href="./browse.html">Browse Event</a>
+            <div class="dropdown-divider"></div>
+              <a href="./create.html">Create Event</a>
+            <div class="dropdown-divider"></div>
+            <a href="./register.html">View Event</a>
+          </div>
+        </li>
+        <li>Log out</li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main area of the web page -->
+
+  <!-- navbar -->
+  <div class="container-fluid" id="main">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark hs">
+
+      <a class="navbar-brand" href="./index.html">EventRock</a>
+      <!-- openNav button -->
+      <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <!-- closeNav button -->
+      <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
+
+    </nav>
+
+    <div class="mainWrapper">
+      <nav class="bodyNav">
+        <ul>
+          <li>
+            <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
+            <span>Profile</span>
+          </li>
+          <li>
+            <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+            <span>Users</span>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="dropdown-toggle" href="#" id="eventDropdown2">
+            <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
+      Event
+    </a>
+            <div class="dropAccount" id="eventdrop2">
+              <a href="./browse.html">Browse Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./create.html">Create Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./register.html">View Event</a>
+            </div>
+          </li>
+          <li>Log out</li>
+        </ul>
+      </nav>
+    </div>
+
+
+
+    <div class="dashboard">
+      <div class="row no-gutters col-12 dash">
+        <div class="col-md-4 text-center mt-5 mb-5">
+            <img src="./images/avatar/profilePix.png" alt="profilePix" class=" profilePix"><br>
+            <p>[username]</p>
+        </div>
+        <div class="col-md-7 ">
+          <form class="form-group">
+            <p>Contact Information</p>
+            <div class="form-group">
+              <label>FIRST NAME</label>
+              <input type="text" value="[regFname]" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>MIDDLE NAME</label>
+              <input type="text" value="[regMname]" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>LAST NAME</label>
+              <input type="text" value="[regLname]" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>EMAIL</label>
+              <input type="email" value="[regEmail]" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>JOB TITLE</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>COMPANY</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>COMPANY ADDRESS</label>
+              <textarea rows="3" cols="8" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label>WEBSITE</label>
+              <input type="text" class="form-control">
+            </div>
+            <hr class="light">
+            <p>Home Address</p>
+            <div class="form-group">
+              <label>ADDRESS</label>
+              <textarea rows="3" cols="8" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label>CITY</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>STATE</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>COUNTRY</label>
+              <input type="text" class="form-control">
+            </div>
+            <button type="button" class="btn btn-info col-12" name="button">SAVE</button>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- end page div -->
+    <div style="height: 150px;"></div>
+  </div>
+
+
+
+
+
+
+
+  <!-- script -->
+  <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
+  <script src="javascript/master.js" charset="utf-8"></script>
+  <script>
+    $("#navbarDropdown").on('click', () => {
+      $("#dropAcc").toggle()
+    })
+    $("#eventDropdown").on('click', () => {
+      $("#eventdrop").toggle()
+    })
+    $("#eventDropdown2").on('click', () => {
+      $("#eventdrop2").toggle()
+    })
+  </script>
+</body>
+
+</html>

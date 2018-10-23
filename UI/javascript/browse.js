@@ -51,7 +51,7 @@ function cat() {
   }
 }
 
-ok.addEventListener('click', () => {
+ok.addEventListener('click', ()=>{
   err.style.display = 'none';
   popup.style.display = 'none';
 })
@@ -59,7 +59,7 @@ minSearch.addEventListener('click', dateSearch, false)
 maxSearch.addEventListener('click', eventSearch, false)
 
 // minSearch function
-function dateSearch() {
+function dateSearch(){
   filter = byMonth.value;
   console.log(filter);
   list = document.getElementsByClassName("details");
@@ -67,19 +67,17 @@ function dateSearch() {
   //res = new RegExp(filter, "gi");
   for (i = 0; i < list.length; i++) {
     li = list[i].getElementsByTagName("span")[0];
-    if (li.innerHTML.indexOf(filter) != -1) {
+    if(li.innerHTML.indexOf(filter) != -1){
       list[i].parentNode.style.display = "block";
-    } else {
+    } else{
       list[i].parentNode.style.display = "none";
     }
-  }
-  if(document.querySelector('.catalog[empty]')){
-    err.style.display = 'block';
-    popup.style.display = 'block';
+    if(li.innerHTML.indexOf(filter) == -1){
+      err.style.display = 'block';
+      popup.style.display = 'block';
+    }
   }
 }
-
-
 // maxSearch function
 function eventSearch() {
   filter = byEvent.value.toUpperCase();
@@ -92,7 +90,7 @@ function eventSearch() {
     } else {
       list[i].parentNode.style.display = "none";
     }
-    if (li.innerHTML.indexOf(filter) == -1) {
+    if(li.innerHTML.indexOf(filter) == -1){
       err.style.display = 'block';
       popup.style.display = 'block';
     }
@@ -106,10 +104,10 @@ var modal = document.getElementById('myModal');
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.querySelectorAll('.myImg:nth-child(n)');
 var caption = document.getElementById("caption");
-for (var i = 0; i < img.length; i++) {
-  img[i].onclick = function() {
-    modal.style.display = "block";
-    caption.style.display = 'block';
+for(var i=0; i<img.length; i++){
+  img[i].onclick = function(){
+      modal.style.display = "block";
+      caption.style.display = 'block';
   }
 }
 
@@ -118,6 +116,6 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
-  caption.style.display = 'none';
+    modal.style.display = "none";
+    caption.style.display = 'none';
 }
