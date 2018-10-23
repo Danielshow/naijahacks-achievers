@@ -14,6 +14,23 @@
 </head>
 
 <body>
+  <div id = "loadingOverlay">
+    <div class="loadingText" id="loadingText">
+      Welcome to Event Rock <br>
+    Loading Available Events !!!!!
+       <br>
+      <img src="./images/gif/load (4).gif" alt="loading" id ="loading">
+    </div>
+  </div>
+  <div id="dialogoverlay"></div>
+  <div id="dialogbox">
+    <div>
+      <div id="dialoghead"> Success </div>
+      <div id="dialogbody"> Registration Succesful <br>
+      Proceed to Login</div>
+      <div id="dialogfooter"><button id="closebutton" class = 'btn btn-success'>OK</button></div>
+    </div>
+  </div>
   <!-- sidenav -->
   <div id="mysidenav" class="sidenav">
     <ul>
@@ -143,33 +160,38 @@
 
 
         <!-- The Modal -->
-        
+
         </div>
         <!-- view event popup -->
         <div id="myModal" class="modal">
           <span class="close">&times;</span>
-          <img src="./images/avatar/testy (3).png" class="modal-content" id="img01">
+          <div id = "modalImage">
+              <img src="./images/avatar/testy (3).png" class="modal-content" id="img01">
+          </div>
           <div id="caption">
-            <h6>Amni Petroleum Ltd.</h6>
-            <span>Sat Oct 20 2018</span>
+            <div id="modalcontent">
+              <h6>Amni Petroleum Ltd.</h6>
+              <span>Sat Oct 20 2018</span>
+            </div>
             <form>
               <div class="form-group ">
                 <label>Name</label>
-                <input type="text" placeholder="name..." class="form-control" required>
+                <input type="text" placeholder="name..." class="form-control" id = "eventname" required>
               </div>
               <div class="form-group">
                 <label>Email</label>
-                <input type="email" placeholder="email..." class="form-control" required>
+                <input type="email" placeholder="email..." class="form-control" id="eventemail" required>
               </div>
-              <button type="button" class="btn btn-info col-12" name="button">Register</button>
+              <div class="errorf" id="errorf"></div>
+              <button type="button" class="btn btn-info col-12" name="button" id="regbtn">Register</button>
             </form>
           </div>
         </div>
 
         <!-- card -->
         <div class="catalog">
-          <div class="fl">
-            <div class="fl2 today business">
+          <div class="fl" id="f1">
+            <!-- <div class="fl2 today business">
               <img src="./images/avatar/testy (3).png" class="img">
               <div class="details">
                 <h6>Amni Petroleum Ltd.</h6>
@@ -240,7 +262,7 @@
                 <span>Sat 2018-09-20</span>
                 <span><a href="#" class="myImg">view details</a></span>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
