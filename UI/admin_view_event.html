@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>profile</title>
+  <link rel="icon" href="./images/icons/favIcon.png">
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="./css/adminMaster.css">
+  <link rel="stylesheet" href="css/admin_view_event.css">
+  <!-- script -->
+  <script src="./javascript/jquery.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+  <div id="mysidenav" class="sidenav">
+    <nav class="bodyNav">
+      <ul>
+        <li>
+          <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
+          <span>Profile</span>
+        </li>
+        <li>
+          <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+          <span>Users</span>
+        </li>
+        <li>
+          <a class="dropdown-toggle" href="#" id="eventDropdown">
+            <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
+      Event
+    </a>
+          <div class="dropAccount" id="eventdrop">
+            <a href="./browseEvent.html">Browse Event</a>
+            <div class="dropdown-divider"></div>
+            <a href="./createEvent.html">Create Event</a>
+            <div class="dropdown-divider"></div>
+            <a href="./viewRegister.html">View Event</a>
+          </div>
+        </li>
+        <li>Log out</li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main area of the web page -->
+
+  <!-- navbar -->
+  <div class="container-fluid" id="main">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark hs">
+
+      <a class="navbar-brand" href="./index.html">EventRock</a>
+      <!-- openNav button -->
+      <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <!-- closeNav button -->
+      <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
+
+    </nav>
+
+    <div class="mainWrapper">
+    <nav class="bodyNav">
+      <ul>
+        <li>
+          <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
+          <span>Profile</span>
+        </li>
+        <li>
+          <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+          <span>Users</span>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle" href="#" id="eventDropdown2">
+            <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
+      Event
+    </a>
+          <div class="dropAccount" id="eventdrop2">
+            <a href="./browseEvent.html">Browse Event</a>
+            <div class="dropdown-divider"></div>
+            <a href="./createEvent.html">Create Event</a>
+            <div class="dropdown-divider"></div>
+            <a href="./viewRegister.html">View Event</a>
+          </div>
+        </li>
+        <li>Log out</li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="dashboard">
+
+        <div class="myevent">
+          <h2>My Event</h2>
+          <table class="table table-hover table-striped">
+            <thead>
+              <th>EVENT TITLE</th>
+              <th>EVENT DESCRIPTION</th>
+              <th>REGISTERED ATTENDANT</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CodeLagos community 2019</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut libero </td>
+                <td><a href="#" class="reg">view attendant</a></td>
+              </tr>
+              <tr>
+                <td>Amni International</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex provident, magnam, ipsum beatae.</td>
+                <td><a href="#" class="reg">view attendant</a></td>
+              </tr>
+              <tr>
+                <td>NaijaHacks 2018</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex provident, magnam, ipsum beatae saepeolor.</td>
+                <td><a href="#" class="reg">view attendant</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- view event popup -->
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <div id="caption">
+            <table class="table">
+              <thead>
+                <th>USERNAME</th>
+                <th>EMAIL</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sadewole</td>
+                  <td>samueladewole15@gmail.com</td>
+                </tr>
+                <tr>
+                  <td>EventRock</td>
+                  <td>eventrock@teamachievers.tech</td>
+                </tr>
+                <tr>
+                  <td>DanielShow</td>
+                  <td>DanielShow2018@gmail.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  </div>
+
+    <!-- end page div -->
+    <div  style="height: 150px;"></div>
+  </div>
+
+
+
+
+
+
+
+  <!-- script -->
+  <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
+  <script src="javascript/adminMaster.js" charset="utf-8"></script>
+  <script src="./javascript/admin_view_event.js" charset="utf-8"></script>
+  <script>
+    $("#navbarDropdown").on('click', () => {
+      $("#dropAcc").toggle()
+    })
+    $("#eventDropdown").on('click', () => {
+      $("#eventdrop").toggle()
+    })
+    $("#eventDropdown2").on('click', () => {
+      $("#eventdrop2").toggle()
+    })
+  </script>
+</body>
+
+</html>
