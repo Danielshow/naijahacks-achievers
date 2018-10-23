@@ -125,7 +125,7 @@ window.addEventListener('load', () => {
 });
 
 const registerToApi = () => {
-  fetch(`${url}/auth/signUp`, {
+  fetch(`${url}/auth/signup`, {
     method: 'POST',
     headers: {
       Accept: 'application/json, text/plain, */*',
@@ -216,7 +216,7 @@ const validateForm = () => {
 close.addEventListener('click', () => {
   dialogoverlay.style.display = 'none';
   dialogbox.style.display = 'none';
-  window.location.replace('./signUp.html');
+  window.location.replace('./signup.html');
 });
 
 const loginUser = (e) => {
