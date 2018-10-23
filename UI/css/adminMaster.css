@@ -14,7 +14,7 @@ body{
   z-index: 1;
   top: 100;
   right: 0;
-  background: #111;
+  background: rgba(51, 4, 22, 0.95);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -82,6 +82,16 @@ body{
   padding: 0px;
   border-right: 1px solid #d6d8db;
 }
+.bodyNav a{
+  color: #fff;
+  text-decoration: none;
+}
+.bodyNav .dropAccount{
+  background: #666;
+}
+.bodyNav .dropAccount a:hover{
+  opacity: .8;
+}
 .bodyNav ul{
   padding: 0px;
 }
@@ -120,21 +130,27 @@ img{
     display: block;
   }
   .mainWrapper{
-    width: 100px;
+    width: 140px;
   }
   .dashboard{
     width: 60%;
     margin: 0 auto;
     margin-left: 150px;
   }
+  .navbar-toggler{
+    display: none;
+  }
 }
 
 @media (max-width: 578px) {
   .mainWrapper{
-    width: 100%;
+    display: none;
   }
   .dashboard{
     display: none;
+  }
+  .navbar-toggler{
+    display: block;
   }
 }
 @media (max-width: 320px) {
