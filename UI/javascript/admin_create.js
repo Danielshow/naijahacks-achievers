@@ -1,31 +1,3 @@
-const openNav = () => {
-  document.getElementById('mysidenav').style.width = '200px';
-  document.getElementById('main').style.marginLeft = '-200px';
-  document.getElementById('main').style.marginRight = '200px';
-  document.getElementById('openMenu').style.display = 'none';
-  document.getElementById('closeMenu').style.display = 'block';
-};
-
-const closeNav = () => {
-  document.getElementById('mysidenav').style.width = '0';
-  document.getElementById('main').style.marginLeft = '0';
-  document.getElementById('main').style.marginRight = '0';
-  document.getElementById('openMenu').style.display = '';
-  document.getElementById('closeMenu').style.display = 'none';
-};
-// confirmation button
-const confirm = document.getElementById('confirm');
-const disable = document.getElementById('disable').disabled = true;
-
-confirm.addEventListener('click', () => {
-  if (confirm.checked) {
-    document.getElementById('disable').disabled = false;
-  } else {
-    document.getElementById('disable').disabled = true;
-  }
-});
-
-// my work
 const title = document.getElementById('title');
 const locatn = document.getElementById('location');
 const startdate = document.getElementById('startdate');
@@ -47,9 +19,19 @@ const close = document.getElementById('closebutton');
 const imagefile = document.getElementById('imagefile');
 const imageError = document.getElementById('imageError');
 const logout = document.getElementById('logout');
-const username = document.getElementById('username');
-let token = '';
+const smlogout = document.getElementById('sm_logout');
 
+let token = '';
+const confirm = document.getElementById('confirm');
+const disable = document.getElementById('disable').disabled = true;
+
+confirm.addEventListener('click', () => {
+  if (confirm.checked) {
+    document.getElementById('disable').disabled = false;
+  } else {
+    document.getElementById('disable').disabled = true;
+  }
+});
 window.addEventListener('load', () => {
   loadingOverlay.style.display = 'flex';
   if (localStorage.getItem('token') && localStorage.getItem('token') !== 'null') {
@@ -64,12 +46,11 @@ window.addEventListener('load', () => {
         window.location.replace('./signup.html');
         return;
       }
-      if (data.status === 200 && data.data[0].roles === 'admin') {
+      if (data.status === 200 && data.data[0].roles !== 'admin') {
         loadingOverlay.style.display = 'none';
-        window.location.replace('./admin_create.html');
+        window.location.replace('./profile.html');
         return;
       }
-      username.innerHTML = data.data[0].username;
       loadingOverlay.style.display = 'none';
     }).catch((err) => {
       loadingOverlay.style.display = 'none';
@@ -162,8 +143,14 @@ const createEvent = (e) => {
   });
 };
 
+close.addEventListener('click', () => {
+  dialogbox.style.display = 'none';
+  window.location.replace('./create.html')
+})
+
 const logoutUser = ((e) => {
   e.preventDefault();
+  console.log("I am in");
   fetch(`${url}/auth/logout`, {
     method: 'GET',
     headers: {
@@ -181,12 +168,6 @@ const logoutUser = ((e) => {
   });
 });
 
-logout.addEventListener('click', logoutUser)
-close.addEventListener('click', () => {
-  dialogbox.style.display = 'none';
-  window.location.replace('./create.html')
-})
-
-const smlogout = document.addEventListener('sm_logout');
 smlogout.addEventListener('click', logoutUser);
+logout.addEventListener('click', logoutUser)
 submit.addEventListener('click', createEvent);

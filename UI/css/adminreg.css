@@ -1,5 +1,11 @@
-/* dashboard */
 
+body{
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  background: rgb(40, 24, 30);
+  color: #fff;
+}
 #loadingOverlay {
   position: fixed;
   top: 0px;
@@ -21,11 +27,6 @@
   width: 50px;
   height: 50px;
 }
-
-input.invalid {
-  background-color: #ffdddd;
-}
-
 
 .imageerror {
   color: red;
@@ -122,105 +123,41 @@ input.invalid {
     left: 20%;
   }
 }
-
+/* dashboard */
 .dashboard{
   width: 70%;
   margin: 0 auto;
   margin-left: 200px;
-}
-.createEvent{
-  width: 70%;
-  margin: 0 auto;
-  padding-top: 95px;
-}
-.createEvent h5,label{
-  font-size: 12px !important;
-}
-.createEvent p{
-  font-size: 10px !important;
-}
-.createEvent label{
-  margin-right: 15px;
+  padding-top: 60px;
 }
 
-hr.light{
-  border-top: .5px solid #d6d8d9;
-  padding: 10px;
+.list-group li{
+  list-style: none;
+  margin: 10px;
 }
-
-/* custom radio */
-.radio{
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+.list-group div{
+  display: inline-block;
 }
-/* hide the browser's default radio button */
-.radio input{
-  position: absolute;
-  opacity: 0;
+td {
   cursor: pointer;
 }
-/* create custom radio */
-.radio .check{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 16px;
-  width: 16px;
-  background: #eee;
-  border: 1px solid #ccc;
-  border-radius: 50%;
+.table td:nth-child(3){
+  background: #dc3545;
 }
-/* an mouse-over, add border color */
-.radio:hover input ~ .check{
-  border: solid 2px #60292e;
+.table td:nth-child(2){
+  background: #17a2b8;
 }
-/* add background color when the radio is checked */
-.radio input:checked ~ .check{
-  background: #60292e;
-  border: none;
-}
-/* create the radio and hide when not checked */
-.radio .check:after{
-  content: "";
-  position: absolute;
-  display: none;
-}
-/* show the radio when checked */
-.radio input:checked ~ .check:after{
-  display: block;
-}
-/* radio style */
-.radio .check:after{
-  left: 4px;
-  top: 4px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
+td:hover{
+  opacity: .8;
 }
 
 
-/* end */
-
-
+/* end of dashboard */
 @media (max-width: 992px) {
   .dashboard{
     width: 60%;
     margin: 0 auto;
-    margin-left: 170px;
-  }
-  .createEvent{
-    width: 100%;
-    margin: 0 auto;
+    margin-left: 150px;
   }
 }
 
@@ -230,7 +167,26 @@ hr.light{
     width: 90%;
     margin: 0 auto;
   }
+  .table thead{
+    display: none;
+  }
+  .table tr{
+    display: block;
+    border-bottom: 2px solid ;
+  }
+  .table td:first-child{
+    text-transform: uppercase;
+  }
+  .table td{
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    min-height: 14px;
+  }
+  .table td::before{
+    content: attr(colname);
+    float: left;
+  }
 }
 @media (max-width: 320px) {
-
 }

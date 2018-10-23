@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>profile</title>
-  <link rel="icon" href="./images/icons/favIcon.png">
+  <title>Register event</title>
+  <link rel="icon" href="./images/icons/favIcon.jpg">
   <!-- stylesheet -->
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/register.css">
@@ -15,7 +15,15 @@
 </head>
 
 <body>
-
+  <div id = "loadingOverlay">
+    <div class="loadingText" id="loadingText">
+      Welcome to the world of Possibilities <br>
+      Cant wait to send your event to a wider audience !!!!! <br>
+      You are amost there!!!!!!!!!!
+       <br>
+      <img src="./images/gif/load (4).gif" alt="loading" id ="loading">
+    </div>
+  </div>
   <div id="mysidenav" class="sidenav">
     <ul>
       <li>
@@ -33,7 +41,7 @@
         </div>
       </li>
       <li>
-        <a href="./index.html">Log out</a>
+        <a href="#" id="sm_logout">Log out</a>
       </li>
     </ul>
 
@@ -71,7 +79,7 @@
             </div>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./index.html">Log out</a>
+            <a class="nav-link" href="#" id="logout">Log out</a>
           </li>
         </ul>
       </div>
@@ -86,22 +94,8 @@
           <th>EVENT DESCRIPTION</th>
           <th>REGISTERED ATTENDANT</th>
         </thead>
-        <tbody>
-          <tr>
-            <td>CodeLagos community 2019</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut libero </td>
-            <td><a href="#" class="reg">view attendant</a></td>
-          </tr>
-          <tr>
-            <td>Amni International</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex provident, magnam, ipsum beatae.</td>
-            <td><a href="#" class="reg">view attendant</a></td>
-          </tr>
-          <tr>
-            <td>NaijaHacks 2018</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex provident, magnam, ipsum beatae saepeolor.</td>
-            <td><a href="#" class="reg">view attendant</a></td>
-          </tr>
+        <tbody id='tbody'>
+
         </tbody>
       </table>
     </div>
@@ -115,7 +109,7 @@
             <th>USERNAME</th>
             <th>EMAIL</th>
           </thead>
-          <tbody>
+          <tbody id = 'viewTable'>
             <tr>
               <td>Sadewole</td>
               <td>samueladewole15@gmail.com</td>

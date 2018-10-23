@@ -5,7 +5,6 @@ body{
   background: rgb(40, 24, 30);
   color: #fff;
 }
-
 #loadingOverlay {
   position: fixed;
   top: 0px;
@@ -24,6 +23,8 @@ body{
 #loading {
   z-index: 1;
   border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
 .imageerror {
@@ -121,7 +122,6 @@ body{
     left: 20%;
   }
 }
-
 /* sidenav */
 .sidenav {
   display: none;
@@ -136,13 +136,13 @@ body{
   transition: 0.5s;
   padding-top: 60px;
 }
-
 .error {
   color: red;
 }
 input.invalid {
   background-color: #ffdddd;
 }
+
 .sidenav ul {
   list-style: none;
 }

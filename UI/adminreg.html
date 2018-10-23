@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registered users</title>
+  <link rel="icon" href="./images/icons/favIcon.jpg">
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="./css/master.css">
+  <link rel="stylesheet" href="css/adminreg.css">
+  <!-- script -->
+  <script src="./javascript/jquery.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div id = "loadingOverlay">
+    <div class="loadingText" id="loadingText">
+      Welcome to the world of Possibilities <br>
+      Cant wait to send your event to a wider audience !!!!! <br>
+      You are amost there!!!!!!!!!!
+       <br>
+      <img src="./images/gif/load (4).gif" alt="loading" id ="loading">
+    </div>
+  </div>
+  <div id="dialogoverlay"></div>
+  <div id="dialogbox">
+    <div>
+      <div id="dialoghead"> Success </div>
+      <div id="dialogbody"></div>
+      <div id="dialogfooter"><button id="closebutton" class = 'btn btn-success'>OK</button></div>
+    </div>
+  </div>
+    <div id="mysidenav" class="sidenav">
+      <nav class="bodyNav">
+        <ul>
+          <li><a href="./admin_page.html">
+            <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
+            <span>Profile</span>
+          </a>
+          </li>
+          <li><a href="./adminreg.html">
+            <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+            <span>Users</span>
+          </a>
+          </li>
+          <li>
+            <a class="dropdown-toggle" href="#" id="eventDropdown">
+              <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
+        Event
+      </a>
+            <div class="dropAccount" id="eventdrop">
+              <a href="./browse.html">Browse Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./admin_create.html">Create Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./admin_view_event.html">View Event</a>
+            </div>
+          </li>
+          <li><a href="#" id="sm_logout"></a>Log out</li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main area of the web page -->
+
+    <!-- navbar -->
+    <div class="container-fluid" id="main">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark hs">
+
+        <a class="navbar-brand" href="./index.html">EventRock</a>
+        <!-- openNav button -->
+        <button id="openMenu" class="navbar-toggler" type="button" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <!-- closeNav button -->
+        <button class="navbar-toggler" onclick="closeNav()" id="closeMenu">&times;</button>
+
+      </nav>
+
+      <div class="mainWrapper">
+      <nav class="bodyNav">
+        <ul>
+          <li><a href="./admin_page.html">
+            <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
+            <span>Profile</span>
+          </a>
+          </li>
+          <li>
+            <a href="./adminreg.html">
+              <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+              <span>Users</span>
+          </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="dropdown-toggle" href="#" id="eventDropdown2">
+              <span><img class="mainImg" src="./images/event.png" alt="calendar"></span>
+        Event
+      </a>
+            <div class="dropAccount" id="eventdrop2">
+              <a href="./browse.html">Browse Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./admin_create.html">Create Event</a>
+              <div class="dropdown-divider"></div>
+              <a href="./admin_view_event.html">View Event</a>
+            </div>
+          </li>
+          <li id="logout">Log out</li>
+        </ul>
+      </nav>
+    </div>
+    </div>
+
+
+
+    <div class="dashboard">
+      <h2>Users</h2>
+      <table class="table" id="usertable">
+
+      </table>
+    </div>
+    <!-- end page div -->
+    <div style="height: 150px;"></div>
+  </div>
+
+  <!-- script -->
+  <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
+  <script src="javascript/master.js" charset="utf-8"></script>
+  <script src ="javascript/adminreg.js">
+
+  </script>
+  <script>
+    $("#navbarDropdown").on('click', () => {
+      $("#dropAcc").toggle()
+    })
+    $("#eventDropdown").on('click', () => {
+      $("#eventdrop").toggle()
+    })
+    $("#eventDropdown2").on('click', () => {
+      $("#eventdrop2").toggle()
+    })
+  </script>
+</body>
+
+</html>

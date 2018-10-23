@@ -5,28 +5,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>profile</title>
-  <link rel="icon" href="./images/icons/favIcon.png">
+  <title>Create event</title>
+  <link rel="icon" href="./images/icons/favIcon.jpg">
   <!-- stylesheet -->
   <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="./css/adminMaster.css">
+  <link rel="stylesheet" href="./css/master.css">
   <link rel="stylesheet" href="css/admin_create.css">
   <!-- script -->
   <script src="./javascript/jquery.js" charset="utf-8"></script>
 </head>
 
 <body>
+  <div id = "loadingOverlay">
+    <div class="loadingText" id="loadingText">
+      Welcome to the world of Possibilities <br>
+      Cant wait to send your event to a wider audience !!!!! <br>
+      You are amost there!!!!!!!!!!
+       <br>
+      <img src="./images/gif/load (4).gif" alt="loading" id ="loading">
+    </div>
+  </div>
+  <div id="dialogoverlay"></div>
+  <div id="dialogbox">
+    <div>
+      <div id="dialoghead"> Success </div>
+      <div id="dialogbody"></div>
+      <div id="dialogfooter"><button id="closebutton" class = 'btn btn-success'>OK</button></div>
+    </div>
+  </div>
 
   <div id="mysidenav" class="sidenav">
     <nav class="bodyNav">
       <ul>
-        <li>
+        <li><a href="./admin_page.html">
           <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
           <span>Profile</span>
+        </a>
         </li>
-        <li>
+        <li><a href="./adminreg.html">
           <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
           <span>Users</span>
+        </a>
         </li>
         <li>
           <a class="dropdown-toggle" href="#" id="eventDropdown">
@@ -34,14 +53,14 @@
       Event
     </a>
           <div class="dropAccount" id="eventdrop">
-            <a href="./browseEvent.html">Browse Event</a>
+            <a href="./browse.html">Browse Event</a>
             <div class="dropdown-divider"></div>
-            <a href="./createEvent.html">Create Event</a>
+            <a href="./admin_create.html">Create Event</a>
             <div class="dropdown-divider"></div>
-            <a href="./viewRegister.html">View Event</a>
+            <a href="./admin_view_event.html">View Event</a>
           </div>
         </li>
-        <li>Log out</li>
+        <li><a href="#" id="sm_logout"></a>Log out</li>
       </ul>
     </nav>
   </div>
@@ -65,13 +84,16 @@
     <div class="mainWrapper">
     <nav class="bodyNav">
       <ul>
-        <li>
+        <li><a href="./admin_page.html">
           <span><img class="mainImg" src="./images/avatar/profilePix.png" alt="tag"></span>
           <span>Profile</span>
+        </a>
         </li>
         <li>
-          <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
-          <span>Users</span>
+          <a href="./adminreg.html">
+            <span><img class="mainImg" src="./images/avatar/users.png" alt="user"></span>
+            <span>Users</span>
+        </a>
         </li>
         <li class="nav-item dropdown">
           <a class="dropdown-toggle" href="#" id="eventDropdown2">
@@ -79,24 +101,24 @@
       Event
     </a>
           <div class="dropAccount" id="eventdrop2">
-            <a href="./browseEvent.html">Browse Event</a>
+            <a href="./browse.html">Browse Event</a>
             <div class="dropdown-divider"></div>
-            <a href="./createEvent.html">Create Event</a>
+            <a href="./admin_create.html">Create Event</a>
             <div class="dropdown-divider"></div>
-            <a href="./viewRegister.html">View Event</a>
+            <a href="./admin_view_event.html">View Event</a>
           </div>
         </li>
-        <li>Log out</li>
+        <li id="logout">Log out</li>
       </ul>
     </nav>
   </div>
 
   <div class="dashboard">
     <div class="createEvent">
-      <form class="form">
+      <form class="form" id="createEvent" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="title" class="form-inline"><h5>EVENT TITLE</h5> <span style="color: red">*</span></label>
-          <input type="text" name="title" class="form-control" placeholder="use a distinct name" required>
+          <input type="text" name="title" id="title"class="form-control" placeholder="use a distinct name" required>
         </div>
 
         <div class="form-group">
@@ -106,49 +128,49 @@
 
         <div class="form-group form-inline">
           <label for="start" class="form-inline"><h5>START</h5> <span style="color: red">*</span></label>
-          <input type="date" class="form-control" required>
-          <input type="time" class="form-control">
+          <input type="date" class="form-control" name="startdate" id="startdate"required>
+          <input type="time" class="form-control" name="starttime" id="starttime">
         </div>
         <div class="form-group form-inline">
           <label for="end" class="form-inline"><h5>END</h5> <span style="color: red">*</span></label>
-          <input type="date" class="form-control" required>
-          <input type="time" class="form-control">
+          <input type="date" class="form-control" name="enddate" id="enddate" required>
+          <input type="time" class="form-control" name="endtime" id="endtime">
 
         </div>
         <hr class="light">
 
         <div class="form-group">
           <h5>CATEGORY</h5>
-          <label class="radio">Music
-            <input type="radio" name="category">
+          <label class="radio">
+            <input type="radio" name="category" id="category" value = 'music'> Music
             <span class="check"></span>
           </label>
-          <label class="radio">Sport
-            <input type="radio" name="category">
+          <label class="radio">
+            <input type="radio" name="category" id="category" value = 'sport'> Sport
             <span class="check"></span>
           </label>
-          <label class="radio">Arts
-            <input type="radio" name="category">
+          <label class="radio">
+            <input type="radio" name="category" id="category" value= 'arts'> Arts
             <span class="check"></span>
           </label>
-          <label class="radio">Business
-            <input type="radio" name="category">
+          <label class="radio">
+            <input type="radio" name="category" id="category" value='business'> Business
             <span class="check"></span>
           </label>
-          <label class="radio">Conference
-            <input type="radio" name="category">
+          <label class="radio">
+            <input type="radio" name="category" id="category" value='Conference'> Conference
             <span class="check"></span>
           </label>
-          <label class="radio">Festival
-            <input type="radio" name="category">
+          <label class="radio">
+            <input type="radio" name="category" id="category" value='festival'> Festival
             <span class="check"></span>
           </label>
-          <label class="radio">Science & Technology
-            <input type="radio" name="category">
+          <label class="radio">
+            <input type="radio" name="category" id="category" value="science and Technology"> Science and Technology
             <span class="check"></span>
           </label>
-          <label class="radio">Party
-            <input type="radio" name="category">
+          <label class="radio">
+            <input type="radio" name="category" id="category" value="party"> Party
             <span class="check"></span>
           </label>
         </div>
@@ -156,8 +178,12 @@
 
         <div class="form-group">
           <label for="image" class="form-inline"><h5>EVENT IMAGE</h5></label>
-          <p>We recommend using at least a 2160 x 1080px(2:1 ratio) image that's no larger than 10MB</p>
-          <input type="file" name="image" class="form-control-file">
+          <p>We recommend using at least an image that's no larger than 10MB</p>
+          <p>If an image is not uploaded, a default image will be used </p>
+          <input type="file" name="image" class="form-control-file" id="imagefile">
+          <div class="imageerror" id="imageError">
+
+          </div>
         </div>
 
         <div class="form-group">
@@ -168,17 +194,18 @@
 
         <div class="form-group">
           <label for="organizer" class="form-inline"><h5>ORGANIZER NAME</h5></label>
-          <input type="text" name="organizer" class="form-control">
+          <input type="text" name="organizer" class="form-control" id="organizer">
         </div>
         <div class="form-group">
           <label for="organizer_description" class="form-inline"><h5>ORGANIZER DESCRIPTION</h5></label>
-          <textarea name="organizer_description" id="organizer_description" cols="30" rows="2" class="form-control"></textarea>
+          <textarea name="organizerdescription" id="organizer_description" name="organizerdescription" cols="30" rows="2" class="form-control"></textarea>
         </div>
 
         <div class="form-inline">
           <input type="checkbox" id="confirm">
           <label class="form-item">I've ensured my information are correct</p>
         </div>
+        <div class="error" id="error"></div>
         <button type="submit" class="btn btn-info col-12" id="disable" disabled>SAVE</button>
       </form>
     </div>
@@ -189,14 +216,12 @@
   </div>
 
 
-
-
-
-
-
   <!-- script -->
   <script src="javascript/bootstrap.min.js" charset="utf-8"></script>
-  <script src="javascript/adminMaster.js" charset="utf-8"></script>
+  <script src="javascript/master.js" charset="utf-8"></script>
+  <script src="javascript/admin_create.js">
+
+  </script>
   <script>
     $("#navbarDropdown").on('click', () => {
       $("#dropAcc").toggle()

@@ -47,7 +47,7 @@ class AuthController {
             status: 200,
             data: {
               token,
-              data: data.rows[0].roles,
+              roles: data.rows[0].roles,
             },
             message: 'Login Successful',
           });
@@ -78,7 +78,7 @@ class AuthController {
         return next(err);
       }
       if (data.rows.length > 0) {
-        return res.status(200).json({
+        return res.status(200).send({
           type: 'GET',
           status: 200,
           data: data.rows,
