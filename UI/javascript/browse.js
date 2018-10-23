@@ -39,14 +39,14 @@ const popup = document.getElementById('popup');
 
 catalog.addEventListener('change', cat, false);
 
-function cat() {
-  if (this.value == 'music') {
-    m = Array.from(music);
-    for (let i = 0; i < m.length; i++) {
-      console.log(m[i].style.display = 'none');
-    }
-  }
-}
+// function cat() {
+//   if (this.value == 'music') {
+//     m = Array.from(music);
+//     for (let i = 0; i < m.length; i++) {
+//       console.log(m[i].style.display = 'none');
+//     }
+//   }
+// }
 
 
 minSearch.addEventListener('click', dateSearch, false);
