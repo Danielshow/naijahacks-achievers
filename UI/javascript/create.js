@@ -46,6 +46,7 @@ const url = 'http://localhost:3000/api/v1';
 const close = document.getElementById('closebutton');
 const imagefile = document.getElementById('imagefile');
 const imageError = document.getElementById('imageError');
+const logout = document.getElementById('logout');
 
 let token = '';
 
@@ -89,7 +90,6 @@ imagefile.addEventListener('change', () => {
 })
 
 const createEvent = (e) => {
-  console.log(imagefile.files);
   e.preventDefault();
   let valid = true;
   if (title.value.trim().length < 1) {
@@ -161,6 +161,25 @@ const createEvent = (e) => {
   });
 };
 
+const logoutUser = ((e) => {
+  e.preventDefault();
+  fetch(`${url}/auth/logout`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(response => response.json()).then((data) => {
+    if (data.status === 200) {
+      if (typeof (Storage) !== 'undefined') {
+        localStorage.setItem('token', `${data.data.token}`);
+      }
+      window.location.replace('./signup.html');
+    }
+  }).catch((err) => {
+    window.location.replace('./signup.html')
+  });
+});
+logout.addEventListener('click', logoutUser)
 close.addEventListener('click', () => {
   dialogbox.style.display = 'none';
   window.location.replace('./create.html')
