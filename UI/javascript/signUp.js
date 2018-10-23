@@ -112,7 +112,7 @@ window.addEventListener('load', () => {
       }
       if (data.status === 200 && data.data[0].roles === 'admin') {
         loadingOverlay.style.display = 'none';
-        window.location.replace('./admin.html');
+        window.location.replace('./admin_create.html');
         return;
       }
       loadingOverlay.style.display = 'none';

@@ -36,9 +36,9 @@ window.addEventListener('load', () => {
         window.location.replace('./signup.html');
         return;
       }
-      if (data.status === 200 && data.data[0].roles !== 'admin') {
+      if (data.status === 200 && data.data[0].roles === 'admin') {
         loadingOverlay.style.display = 'none';
-        window.location.replace('./profile.html');
+        window.location.replace('./admin_create.html');
         return;
       }
       id = data.data[0].id;
