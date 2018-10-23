@@ -123,4 +123,7 @@ const logoutUser = ((e) => {
     window.location.replace('./signup.html')
   });
 });
+
+const smlogout = document.addEventListener('sm_logout');
+smlogout.addEventListener('click', logoutUser);
 logout.addEventListener('click', logoutUser)

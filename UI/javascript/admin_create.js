@@ -19,6 +19,7 @@ const close = document.getElementById('closebutton');
 const imagefile = document.getElementById('imagefile');
 const imageError = document.getElementById('imageError');
 const logout = document.getElementById('logout');
+const smlogout = document.getElementById('sm_logout');
 
 let token = '';
 const confirm = document.getElementById('confirm');
@@ -166,5 +167,7 @@ const logoutUser = ((e) => {
     window.location.replace('./signup.html')
   });
 });
+
+smlogout.addEventListener('click', logoutUser);
 logout.addEventListener('click', logoutUser)
 submit.addEventListener('click', createEvent);
