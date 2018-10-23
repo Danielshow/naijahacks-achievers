@@ -1,17 +1,3 @@
-// const modal = document.getElementById('myModal');
-// const reg = document.querySelectorAll('.reg:nth-child(n)');
-// const caption = document.getElementById('caption');
-// for (let i = 0; i < reg.length; i++) {
-//   reg[i].onclick = function () {
-//     modal.style.display = 'block';
-//     caption.style.display = 'block';
-//   };
-// }
-// const span = document.getElementsByClassName('close')[0];
-// span.onclick = function () {
-//   modal.style.display = 'none';
-//   caption.style.display = 'none';
-// };
 let token = null;
 let id = null;
 const loadingOverlay = document.getElementById('loadingOverlay');

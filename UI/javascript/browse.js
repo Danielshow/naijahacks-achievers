@@ -37,7 +37,7 @@ const err = document.getElementById('err');
 const ok = document.getElementById('ok');
 const popup = document.getElementById('popup');
 
-catalog.addEventListener('change', cat, false);
+// catalog.addEventListener('change', cat, false);
 
 // function cat() {
 //   if (this.value == 'music') {
