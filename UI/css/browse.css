@@ -413,7 +413,7 @@ select:focus, option{
   background: #f8f9fa;
 }
 
-.sm, .md,.month {
+.sm, .md {
   display: none;
 }
 
