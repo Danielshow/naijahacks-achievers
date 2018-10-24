@@ -37,21 +37,10 @@ const err = document.getElementById('err');
 const ok = document.getElementById('ok');
 const popup = document.getElementById('popup');
 
-// catalog.addEventListener('change', cat, false);
-
-// function cat() {
-//   if (this.value == 'music') {
-//     m = Array.from(music);
-//     for (let i = 0; i < m.length; i++) {
-//       console.log(m[i].style.display = 'none');
-//     }
-//   }
-// }
-
 
 minSearch.addEventListener('click', dateSearch, false);
 maxSearch.addEventListener('click', eventSearch, false);
-
+const url = 'https://teamachievers.herokuapp.com/api/v1';
 // minSearch function
 function dateSearch() {
   const filter = byMonth.value;
@@ -64,10 +53,6 @@ function dateSearch() {
       list[i].parentNode.style.display = 'block';
     } else {
       list[i].parentNode.style.display = 'none';
-    }
-    if (li.innerHTML.indexOf(filter) === -1) {
-      err.style.display = 'block';
-      popup.style.display = 'block';
     }
   }
 }
@@ -83,42 +68,26 @@ function eventSearch() {
     } else {
       list[i].parentNode.style.display = 'none';
     }
-    if (li.innerHTML.indexOf(filter) === -1) {
-      err.style.display = 'block';
-      popup.style.display = 'block';
-    }
   }
 }
 
-
-// Get the modal
-// const modal = document.getElementById('myModal');
-// // Get the image and insert it inside the modal - use its "alt" text as a caption
-// const img = document.querySelectorAll('.myImg:nth-child(n)');
-// const caption = document.getElementById('caption');
-// for (let i = 0; i < img.length; i += 1) {
-//   img[i].onclick = () => {
-//     img[i].getAttribute('data-id');
-//     modal.style.display = 'block';
-//     caption.style.display = 'block';
-//   };
-// }
-//
-// // Get the <span> element that closes the modal
-// const span = document.getElementsByClassName('close')[0];
-//
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = () => {
-//   modal.style.display = 'none';
-//   caption.style.display = 'none';
-// };
-
-// start backend implementation
 const wrapper = document.getElementById('f1');
+const category = document.getElementsByClassName('f12');
 const loadingOverlay = document.getElementById('loadingOverlay');
-const url = 'https://teamachievers.herokuapp.com/api/v1';
 const modalImage = document.getElementById('modalImage');
 const modalcontent = document.getElementById('modalcontent');
+
+// function searchByCategory() {
+//   console.log(this.value);
+//   console.log(category);
+//   // this.value.getElementsByTagName
+//   for (let i = 0; i < category.length; i += 1) {
+//     console.log(category[i]);
+//     console.log(category[i].getElementsByTagName('h6'));
+//   }
+// }
+// catalog.addEventListener('change', searchByCategory, false);
+
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 window.addEventListener('load', () => {
   loadingOverlay.style.display = 'flex';
@@ -131,7 +100,8 @@ window.addEventListener('load', () => {
         wrapper.innerHTML += `<div class="fl2">
                       <img src=${dt.image} class="img" alt = ${dt.title}>
                       <div class="details">
-                        <h6>${dt.title}</h6>
+                        <h5>${dt.title}</h5>
+                        <h6>${dt.category}</h6>
                         <span>${dt.startdate.slice(0, 10)}</span>
                         <span><a href="#" class="myImg" data-id=${dt.id}>view details</a></span>
                       </div>
@@ -143,6 +113,7 @@ window.addEventListener('load', () => {
       let id = null;
       for (let i = 0; i < img.length; i += 1) {
         img[i].addEventListener('click', () => {
+          loadingOverlay.style.display = 'flex';
           id = img[i].getAttribute('data-id');
           fetchData(id);
         });
@@ -173,6 +144,7 @@ const caption = document.getElementById('caption');
 const fetchData = (id) => {
   fetch(`${url}/event/${id}`).then(response => response.json()).then((data) => {
     if (data.status === 200) {
+      loadingOverlay.style.display = 'none';
       const d = data.data;
       modalImage.innerHTML = `<img src=${d.image} class="modal-content" id="img01" alt=${d.title}>`;
       modalcontent.innerHTML = `<h6>${d.title}</h6>
