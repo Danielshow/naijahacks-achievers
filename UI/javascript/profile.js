@@ -1,20 +1,20 @@
-const openNav = () => {
+function openNav() {
   document.getElementById('mysidenav').style.width = '200px';
   document.getElementById('main').style.marginLeft = '-200px';
   document.getElementById('main').style.marginRight = '200px';
   document.getElementById('openMenu').style.display = 'none';
   document.getElementById('closeMenu').style.display = 'block';
-};
+}
 
-const closeNav = () => {
+function closeNav() {
   document.getElementById('mysidenav').style.width = '0';
   document.getElementById('main').style.marginLeft = '0';
   document.getElementById('main').style.marginRight = '0';
   document.getElementById('openMenu').style.display = '';
   document.getElementById('closeMenu').style.display = 'none';
-};
+}
 
-const url = 'http://localhost:3000/api/v1'
+const url = 'http://localhost:3000/api/v1';
 let token = null;
 const username = document.getElementById('username');
 const loadingOverlay = document.getElementById('loadingOverlay');
@@ -66,15 +66,10 @@ const logoutUser = ((e) => {
       window.location.replace('./signup.html');
     }
   }).catch((err) => {
-    window.location.replace('./signup.html')
+    window.location.replace('./signup.html');
   });
 });
 
-logout.addEventListener('click', logoutUser)
-close.addEventListener('click', () => {
-  dialogbox.style.display = 'none';
-  window.location.replace('./create.html')
-})
+logout.addEventListener('click', logoutUser);
 const smlogout = document.getElementById('sm_logout');
 smlogout.addEventListener('click', logoutUser);
-submit.addEventListener('click', createEvent);
