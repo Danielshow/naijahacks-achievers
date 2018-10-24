@@ -124,6 +124,6 @@ const logoutUser = ((e) => {
   });
 });
 
-const smlogout = document.addEventListener('sm_logout');
+const smlogout =document.getElementById('sm_logout');
 smlogout.addEventListener('click', logoutUser);
 logout.addEventListener('click', logoutUser)

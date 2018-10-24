@@ -8,7 +8,7 @@ class UserSort {
         return next(err);
       }
       if (data.rows.length < 1) {
-        res.status(404).json({
+        return res.status(404).json({
           TYPE: 'POST',
           status: 404,
           message: 'Event in this category does not exist',

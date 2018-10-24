@@ -75,7 +75,6 @@ close.addEventListener('click', () => {
   dialogbox.style.display = 'none';
   window.location.replace('./create.html')
 })
-
-const smlogout = document.addEventListener('sm_logout');
+const smlogout = document.getElementById('sm_logout');
 smlogout.addEventListener('click', logoutUser);
 submit.addEventListener('click', createEvent);
