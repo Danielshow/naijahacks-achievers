@@ -14,6 +14,9 @@ const closeNav = () => {
   document.getElementById('closeMenu').style.display = 'none';
 };
 
+let about = document.getElementById('about1');
+about.addEventListener('click', closeNav, false)
+
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
   const x = document.getElementsByClassName('step');
@@ -125,7 +128,7 @@ window.addEventListener('load', () => {
 });
 
 const registerToApi = () => {
-  fetch(`${url}/auth/signup`, {
+  fetch(`${url}/auth/signUp`, {
     method: 'POST',
     headers: {
       Accept: 'application/json, text/plain, */*',
@@ -216,7 +219,7 @@ const validateForm = () => {
 close.addEventListener('click', () => {
   dialogoverlay.style.display = 'none';
   dialogbox.style.display = 'none';
-  window.location.replace('./signup.html');
+  window.location.replace('./signUp.html');
 });
 
 const loginUser = (e) => {

@@ -169,5 +169,5 @@ const logoutUser = ((e) => {
 });
 
 smlogout.addEventListener('click', logoutUser);
-logout.addEventListener('click', logoutUser)
+logout.addEventListener('click', logoutUser);
 submit.addEventListener('click', createEvent);
