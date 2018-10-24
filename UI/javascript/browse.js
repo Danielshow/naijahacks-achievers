@@ -62,7 +62,7 @@ function eventSearch() {
   const list = document.getElementsByClassName('details');
 
   for (let i = 0; i < list.length; i += 1) {
-    const li = list[i].getElementsByTagName('h6')[0];
+    const li = list[i].getElementsByTagName('h5')[0];
     if (li.innerHTML.toUpperCase().indexOf(filter) !== -1) {
       list[i].parentNode.style.display = 'block';
     } else {
